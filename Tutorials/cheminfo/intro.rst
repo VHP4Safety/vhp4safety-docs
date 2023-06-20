@@ -134,20 +134,20 @@ for "aflatoxin B1". The output should look something like this:
 
 .. code-block::
 
-   knapsack:C00000546	KNApSAcK
-   chebi:2504	ChEBI
-   kegg.compound:C06800	KEGG Compound
-   comptox:DTXSID00873175	EPA CompTox
-   pubchem.compound:186907	PubChem-compound
-   inchikey:OQIQSTLJSLGHID-WNWIJWBNSA-N	InChIKey
-   chembl.compound:CHEMBL1697694	ChEMBL compound
-   comptox:DTXSID9020035	EPA CompTox
-   cas:1162-65-8	CAS
-   chemspider:162470	Chemspider
-   wikidata:Q4689278	Wikidata
-   hmdb:HMDB0006552	HMDB
-   chebi:2504	ChEBI
-   hmdb:HMDB06552	HMDB
+   C00000546	KNApSAcK
+   CHEBI:2504	ChEBI
+   C06800	KEGG Compound
+   DTXSID00873175	EPA CompTox
+   186907	PubChem-compound
+   OQIQSTLJSLGHID-WNWIJWBNSA-N	InChIKey
+   CHEMBL1697694	ChEMBL compound
+   DTXSID9020035	EPA CompTox
+   1162-65-8	CAS
+   162470	Chemspider
+   Q4689278	Wikidata
+   HMDB0006552	HMDB
+   2504	ChEBI
+   HMDB06552	HMDB
 
 Metabolite prediction
 ---------------------
