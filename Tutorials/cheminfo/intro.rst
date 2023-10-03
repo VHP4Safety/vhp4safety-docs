@@ -1,3 +1,11 @@
+.. table:: Tutorial Metadata
+   :widths: auto
+
+   =====      =====
+   Author(s)  Egon Willighagen (orcid:0000-0001-7542-0286)
+   License    CC-BY International 4.0
+   =====      =====
+
 Information about chemicals
 ===========================
 
