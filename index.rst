@@ -12,11 +12,17 @@ information, documentation, installation instructions and demos on how
 to use the software, models and data generated in the project.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
 
    Introduction/intro.rst
    Templates/templates.rst
+   Topics/Topics.rst
+   Tutorials/Tutorials.rst
+   Tutorials/cheminfo/intro.rst
+   Tutorials/bridgedb/gene_identifier_mapping.rst
+   Tutorials/aoplink/aoplink_rmarkdown.rst
+   Tutorials/sombie/site_of_metabolism_prediction.rst
    Services/catalog.rst
    Services/aopwiki/aopwiki.rst
    Services/cdkdepict/cdkdepict.rst
@@ -25,12 +31,6 @@ to use the software, models and data generated in the project.
    Services/popgen/popgen.rst
    Services/txg_mapr/txg_mapr.rst
    Services/wikibase/wikibase.rst
-   Topics/Topics.rst
-   Tutorials/Tutorials.rst
-   Tutorials/cheminfo/intro.rst
-   Tutorials/bridgedb/gene_identifier_mapping.rst
-   Tutorials/aoplink/aoplink_rmarkdown.rst
-   Tutorials/sombie/site_of_metabolism_prediction.rst
       
 Indices and tables
 ==================
