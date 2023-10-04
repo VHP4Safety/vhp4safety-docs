@@ -37,6 +37,7 @@ images: $(eval SHELL:=/bin/bash)
 
 # update catalog and clean up
 catalog: $(eval SHELL:=/bin/bash)
+	mkdir tmp
 	rm -rf catalog.md
 	rm -rf Services/catalog.rst
 	curl -o tmp/catalog.md https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/catalog.md
