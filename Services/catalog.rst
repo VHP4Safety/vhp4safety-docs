@@ -28,7 +28,7 @@ AOP-Wiki Snorql UI
 ------------------
 
 Graphical interface to an AOP-Wiki SPARQL endpoint. [`more
-info <service/aopwiki.md>`__]
+info <aopwiki/aopwiki.md>`__]
 
 --------------
 
