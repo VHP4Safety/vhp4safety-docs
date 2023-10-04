@@ -233,7 +233,6 @@ nlpaug==1.1.7
 nltk==3.6.6
 notebook==6.5.2
 notebook_shim==0.2.2
-numba==0.56.4
 numexpr==2.8.6
 numpy==1.23.5
 oauth2client==4.1.3
