@@ -1,0 +1,11 @@
+site_name: VHP4Safety
+site_url: 'https://www.sciencrew.com/c/6586?title=VHP4Safety'
+nav:
+  - Home: index.md
+  - Resources: resources/resources.md
+  - Services: services/catalog.md
+  - Tutorials: tutorials/tutorials.md
+theme: readthedocs
+markdown_extensions:
+  - toc:
+      permalink: "#"
