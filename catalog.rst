@@ -28,7 +28,7 @@ AOP-Wiki Snorql UI
 ------------------
 
 Graphical interface to an AOP-Wiki SPARQL endpoint. [`more
-info <aopwiki/aopwiki.md>`__]
+info <service/aopwiki.md>`__]
 
 --------------
 
@@ -188,6 +188,15 @@ PopGen
 
 Service to generate online virtual human population. [`more
 info <service/popgen.md>`__]
+
+--------------
+
+QSPRpred
+--------
+
+Service to train and employ QSAR and PCM models. Takes a compound
+structure and pretrained model as input and returns the predicted
+potency of said compound. [`more info <service/qsprpred.md>`__]
 
 --------------
 

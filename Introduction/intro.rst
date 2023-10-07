@@ -8,7 +8,7 @@ Towards safety assessment based on human data. Imagine a world in which we perfo
 
 The project website `VHP4Safety`_
 
-.. VHP4Safety: https://vhp4safety.nl/
+.. _VHP4Safety: https://vhp4safety.nl/
 
 
 Partners
