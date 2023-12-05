@@ -1,0 +1,23 @@
+{
+  "id": "comptox",
+  "service": "CompTox",
+  "description": "An online database to provide access to chemistry, toxicity, and exposure information for chemicals.",
+  "url": "https://comptox.epa.gov/dashboard/",
+  "doi": "10.1186/s13321-017-0247-6",
+  "instance": {
+    "type": "Web-Based Application",
+    "license": "Public Domain",
+    "version": "2.1.1",
+  },
+  "provider": {
+    "contact": {
+      "email": "https://www.epa.gov/aboutepa/forms/contact-epa"
+    },
+
+    "url": "https://www.epa.gov/",
+    "name": "United States Environmental Protection Agency"
+  },
+  "Other": {
+    "wikipedia": "CompTox_Chemicals_Dashboard"
+  }
+}

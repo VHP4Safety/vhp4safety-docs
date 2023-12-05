@@ -1,0 +1,26 @@
+{
+  "id": "txg_mapr",
+  "service": "TXG-MAPr",
+  "description": "An R-Shiny-based implementation of weighted gene co-expression network analysis (WGCNA) obtained from the Primary Human Hepatocytes (PHH) TG-GATEs dataset.",
+  "screenshot": "txg_mapr.png",
+  "url": "https://txg-mapr.eu/",
+  "doi": "10.1007/s00204-021-03141-w",
+  "instance": {
+    "type": "VHP4Safety",
+    "vhp-platform": "External",
+    "license": "Proprietary"
+  },
+  "provider": {
+    "contact": {
+      "name": "Steven J. Kunnen",
+      "email": "s.j.kunnen@lacdr.leidenuniv.nl"
+    },
+    "name": "Leiden University"
+  },
+  "access": {
+    "login": "Yes"
+  },
+  "ELIXIR": {
+    "biotools": "TXG-MAPr"
+  }
+}

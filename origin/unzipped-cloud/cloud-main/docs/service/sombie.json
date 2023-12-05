@@ -1,0 +1,26 @@
+{
+  "id": "sombie",
+  "service": "SOM Prediction",
+  "description": "A webservice for protein-structure and reactivity based (P450) site-of-metabolism prediction.",
+  "url": "https://sombie.cloud.vhp4safety.nl/",
+  "doi": "",
+  "instance": {
+    "type": "VHP4Safety",
+    "vhp-platform": "Development",
+    "url": "https://sombie.cloud.vhp4safety.nl/",
+    "TRL": "Integrated application"
+  },
+  "provider": {
+    "contact": {
+      "name": "David Poole",
+      "email": "d.a.poole@vu.nl"
+    }
+  },
+  "access": {
+    "API": "REST",
+    "login": "No"
+  },
+  "ELIXIR": {
+    "tess": "site-of-metabolism"
+  }
+}

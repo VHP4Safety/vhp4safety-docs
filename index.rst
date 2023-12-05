@@ -15,22 +15,15 @@ to use the software, models and data generated in the project.
    :maxdepth: 2
    :caption: Contents:
 
-   Introduction/intro.rst
-   Templates/templates.rst
-   Topics/Topics.rst
-   Tutorials/Tutorials.rst
-   Tutorials/cheminfo/intro.rst
-   Tutorials/bridgedb/gene_identifier_mapping.rst
-   Tutorials/aoplink/aoplink_rmarkdown.rst
-   Tutorials/sombie/site_of_metabolism_prediction.rst
-   Services/catalog.rst
-   Services/aopwiki/aopwiki.rst
-   Services/cdkdepict/cdkdepict.rst
-   Services/sysrev/sysrev.rst
-   Services/decimer/decimer.rst
-   Services/popgen/popgen.rst
-   Services/txg_mapr/txg_mapr.rst
-   Services/wikibase/wikibase.rst
+   introduction/intro.rst
+   templates/templates.rst
+   topics/Topics.rst
+   tutorials/Tutorials.rst
+   tutorials/cheminfo/intro.rst
+   tutorials/bridgedb/gene_identifier_mapping.rst
+   tutorials/aoplink/aoplink_rmarkdown.rst
+   tutorials/sombie/site_of_metabolism_prediction.rst
+   service/catalog.rst
       
 Indices and tables
 ==================

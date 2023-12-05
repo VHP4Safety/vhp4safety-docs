@@ -1,0 +1,21 @@
+{
+  "id": "fairspace",
+  "service": "Fairspace",
+  "description": "An open source (meta)data platform that also allows import/export of metadata and uses RDF (turtle) underneath.",
+  "screenshot": "fairspace.png",
+  "url": "https://www.thehyve.nl/services/fairspace",
+  "instance": {
+    "license": "[Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0.txt)",
+    "version": "[0.7.8](https://github.com/thehyve/fairspace/blob/dev/VERSION)",
+    "source": "https://github.com/thehyve/fairspace",
+    "docker": "https://console.cloud.google.com/artifacts/docker/fairspace-207108/europe/eu.gcr.io/pluto, https://console.cloud.google.com/artifacts/docker/fairspace-207108/europe/eu.gcr.io/saturn, https://console.cloud.google.com/artifacts/docker/fairspace-207108/europe/eu.gcr.io/jupyterhub-hub, https://console.cloud.google.com/artifacts/docker/fairspace-207108/europe/eu.gcr.io/jupyterhub-singleuser",
+  },
+  "provider": {
+    "contact": {
+      "name": "The Hyve",
+      "email": "office@thehyve.nl"
+    },
+    "url": "https://www.thehyve.nl/",
+    "name": "The Hyve"
+  },
+}

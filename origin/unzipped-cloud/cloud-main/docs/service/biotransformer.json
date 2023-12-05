@@ -1,0 +1,14 @@
+{
+  "id": "biotransformer",
+  "service": "BioTransformer",
+  "description": "Website with a tool that can predict metabolites for a SMILES.",
+  "url": "https://biotransformer.ca/",
+  "doi": "10.1186/s13321-018-0324-5",
+  "access": {
+    "API": "",
+    "login": "no"
+  },
+  "ELIXIR": {
+    "biotools": "biotransformer"
+  }
+}

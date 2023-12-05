@@ -1,0 +1,17 @@
+{
+  "id": "jrc_data_catalogue",
+  "service": "Joint Research Centre Data Catalogue",
+  "description": "A catalogue of metadata records about datasets.",
+  "url": "https://data.jrc.ec.europa.eu/",
+  "doi": "10.3030/681002",
+  "provider": {
+    "contact": {
+      "email": "jrc-data-support@ec.europa.eu"
+    },
+    "url": "https://commission.europa.eu/about-european-commission/contact_en",
+    "name": "European Commission"
+  },
+  "access": {
+    "API": "https://data.jrc.ec.europa.eu/docs/index.html",
+  },
+}

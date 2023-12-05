@@ -1,0 +1,20 @@
+{
+  "id": "celldesigner",
+  "service": "CellDesigner",
+  "description": "A modeling tool of biochemical networks.",
+  "url": "https://www.celldesigner.org/",
+  "doi": "10.1016/S1478-5382(03)02370-9",
+  "instance": {
+    "type": "No API",
+    "license": "[See licence agreement](https://www.celldesigner.org/license.txt)",
+    "version": "4.4.2",
+  },
+  "provider": {
+    "contact": {
+      "name": "Systems Biology Institute (SBI)",
+      "email": "info@celldesigner.org"
+    },
+    "url": "https://sbi.jp/",
+    "name": "Systems Biology Institute (SBI)"
+  }
+}

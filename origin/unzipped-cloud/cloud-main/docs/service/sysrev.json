@@ -1,0 +1,27 @@
+{
+  "id": "sysrev",
+  "service": "SysRev",
+  "description": "Service to support literature research.",
+  "url": "https://sysrev.com/",
+  "doi": "10.3389/frai.2021.685298",
+  "instance": {
+    "type": "VHP4Safety Selection"
+  },
+  "provider": {
+    "contact": {
+      "name": "Insilica.co",
+      "email": "info@insilica.co"
+    },
+  },
+  "access": {
+    "API": "REST",
+    "login": "Yes",
+    "packages": {
+      "R": "https://r.sysrev.com/",
+      "Python": "https://github.com/sysrev/PySysrev"
+    }
+  },
+  "ELIXIR": {
+    "biotools": "sysrev"
+  }
+}

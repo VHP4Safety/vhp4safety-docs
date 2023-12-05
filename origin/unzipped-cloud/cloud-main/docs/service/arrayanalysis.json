@@ -1,0 +1,16 @@
+{
+  "id": "arrayanalysis",
+  "service": "ArrayAnalysis",
+  "description": "A user-friendly solutions for microarray quality control and pre-processing",
+  "doi": "10.1093/nar/gkt293",
+  "provider": {
+    "contact": {
+      "name": "Lars Eijssen"
+    },
+    "url": "https://www.bigcat.unimaas.nl/",
+    "name": "BiGCaT, Maastricht University"
+  },
+  "ELIXIR": {
+    "tess": "arrayanalysis.org"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "oecd_qsar_toolbox",
+  "service": "The OECD QSAR Toolbox",
+  "description": "The OECD QSAR Toolbox is a software designed to support hazard assessment of chemicals as well as to increase mechanistic and other knowledge on chemical substances in a cost-efficient way. As a freely available computational tool, it promotes the use of assessment methods alternative to animals and minimizes unnecessary animal testing without reducing the safety of human health and environment. It is intended to be used by governments, chemical industry and other stakeholders.",
+  "screenshot": "oecd_qsar_toolbox.png",
+  "url": "https://qsartoolbox.org/",
+  "instance": {
+    "type": "",
+    "vhp-platform": "",
+    "url": "",
+    "license": "[Terms of Conditions](https://www.oecd.org/termsandconditions/)",
+    "version": "4.6",
+    "source": "",
+    "docker": "",
+    "TRL": ""
+  },
+  "provider": {
+    "url": "https://www.oecd.org/",
+    "name": "The Organisation for Economic Co-operation and Development"
+  },
+}

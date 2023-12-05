@@ -1,0 +1,21 @@
+{
+  "id": "wikibase",
+  "service": "VHP4Safety Wikibase",
+  "description": "A Wikibase instance to hold information about compounds.",
+  "screenshot": "VHP4Safety_ChemicalCompounds.png",
+  "url": "https://compoundcloud.wikibase.cloud/",
+  "instance": {
+    "type": "VHP4Safety Selection"
+  },
+  "provider": {
+    "contact": {
+      "name": "Egon Willighagen",
+      "email": "egon.willighagen@maastrichtuniversity.nl"
+    },
+    "name": "BiGCaT UM"
+  },
+  "access": {
+    "API": "SPARQL",
+    "login": "No"
+  }
+}

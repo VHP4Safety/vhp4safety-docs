@@ -1,0 +1,31 @@
+{
+  "id": "decimer",
+  "service": "DECIMER",
+  "description": "Online service to extract chemical structures from PDFs and images.",
+  "screenshot": "decimer.png",
+  "url": "https://decimer.ai/",
+  "doi": "10.1186/s13321-021-00538-8",
+  "instance": {
+    "license": "[MIT license](https://github.com/Kohulan/DECIMER-Image_Transformer/blob/master/LICENSE)",
+    "version": "Latest",
+    "source": "https://github.com/Kohulan/DECIMER-Image_Transformer",
+    "docker": "https://github.com/OBrink/DECIMER_Web",
+    "TRL": ""
+  },
+  "provider": {
+    "contact": {
+      "name": "Kohulan Rajan",
+      "email": "kohulan.rajan@uni-jena.de",
+    },
+    "url": "https://cheminf.uni-jena.de/research/deep-learning/",
+    "name": "Steinbeck Group at the Friedrich Schiller University Jena"
+  },
+  "access": {
+    "API": "",
+    "login": "No"
+  },
+  "ELIXIR": {
+    "biotools": "",
+    "tess": ""
+  }
+}

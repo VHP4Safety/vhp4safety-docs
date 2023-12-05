@@ -1,0 +1,158 @@
+
+// This is a template for JSON files that can provide a standard way to add 
+// new services to the cloud catalog, maintained with this repository. 
+
+// Please create a new JSON file to add a new service to the catalog. While 
+// creating that file based on this template, please consider the comments 
+// below to fill the items to have a standard representation of services. 
+// Please feel free to raise an issue or give feedback for the template in the // issues section (https://github.com/VHP4Safety/cloud/issues) of this 
+// repository.
+
+// [?OC] I believe we should set a list of minimum required information. For 
+// instance, if there is no id, service or description, how do we create an
+// item in the catalog? I think, there should be at least these three items, 
+// and maybe an URL, whether to an external or internal address. 
+
+{
+  // An id for the JSON file, please fill the id below with the same name as 
+  // the JSON file that you are creating for the service. Please use only small
+  // case letters and do not use spaces between words. 
+  "id": "",
+
+  // The (stylized) name of the service which will be shown as the name of the 
+  // service in the catalog. 
+  "service": "",
+
+  // A description for the service. We currently use a short, generally, a 
+  // single-sentence description.
+  "description": "",
+
+  // The name of the file for the service logo. Please use the same name as the
+  // service id. 
+  // [?OC] Do we really need this. We can check if there is a logo file in the 
+  // createMarkdown file and if there's, it will put the logo. Although, then 
+  // different file types (whether the logo file has a jpeg, png, or another
+  // extension) might be a problem. 
+  "screenshot": "",
+
+  // An URL to the service. 
+  // [?OC] Do we mean a general URL to the service, or the URL to the instance 
+  // running on our servers. Based on that there is an "instance" section below
+  // I think this can be a general, external link such as 
+  // https://www.bridgedb.org/ or https://aopwiki.org/. Otherwise, there might 
+  // be a redundancy in the service information.
+  "url": "",
+  
+  // The DOI of the document (article, preprint, etc.) where information 
+  // regarding the service can be found.
+  // [?OC] Do we force people to give a DOI? What if there is a document that 
+  // does not have a DOI?
+  "doi": "",
+
+  // Information regarding the service's instance that is running on our 
+  // servers.
+  "instance": {
+
+    // [?OC] What exactly is type, actually? I thought this indicates the type 
+    // of the API like REST or SPARQL? But, I am probably wrong. Or, maybe it
+    // can indicate whether the service is an online interactive tool, or a 
+    // database, or something else. 
+    "type": "",
+
+    // The indication for whether the service is running on the development or 
+    // production platform.  
+    "vhp-platform": "",
+
+    // The URL to the service instance running on our servers. 
+    "url": "",
+
+    // The license of the service specified by its creators/maintainers. 
+    // [?OC] There are different ways to indicate the license. The common 
+    // licences are easy to add here (we can even give a link somehow) but 
+    // some services use a custom license to which they have a link. In such 
+    // cases, we need to provide the link here instead of just the name of the 
+    // licence. It should be possible, but we need to make a decision. 
+    "license": "",
+    
+    // The version of the service that is listed in the catalog. 
+    "version": "",
+
+    // The link to the source material of the service.
+    "source": "",
+
+    // The link to the repository where service's Docker container is stored.
+    "docker": "",
+
+    // Technology Readiness Level. For details, please see: 
+    // https://en.wikipedia.org/wiki/Technology_readiness_level
+    // [?OC] Do we have someone who knows and can explain this rating system. 
+    // Personally, I do not know how to use this scale.
+    "TRL": ""
+  },
+
+  // Information regarding the provider/maintainer of the service. 
+  "provider": {
+    "contact": {
+      // The name of a person from the organization that provide the service.
+      "name": "",
+      // The email of the person whose name given above. 
+      "email": ""
+    },
+
+    // An URL to the organization that provide the service. 
+    "url": "",
+    // The name of the organization that provide the service. 
+    "name": ""
+  },
+
+  // Information regarding the remote use of the service. 
+  "access": {
+    // The type of API, if available. 
+    // [?OC] I think we need a link to the API, as well. 
+    "API": "",
+    // Whether the API requires authenication. 
+    "login": "",
+    // Information regarding other types of implementations of the service, 
+    // such as an R package or a Python module. 
+    // [?OC] I think we need some clarification here. Are these basic 
+    // information like, yes/no, or do we need to give a link to the packages?
+    // I think the latter would be better. 
+    "packages": {
+      "R": "",
+      "Python": ""
+    }
+  },
+
+  // Information regarding an available demo documentation about the service.
+  // [?OC] Do we mean a tutorial documentation that will be provided on our 
+  // docs-repo? If so, I think we should make it clear here because this will
+  // be filled by us. 
+  "demo": {
+    // The title of the demo.
+    "title": "",
+    // A link to the demo. 
+    "url": ""
+  },
+
+  // Information regarding sources available on ELIXIR.
+  // [?OC] Is this a correct explanation for the information we ask here?
+  // [?OC] Also, is the information below supposed to be a link? If so, I think
+  // we should make it clear here. 
+  "ELIXIR": {
+    // The keyword for the link to the source on bio.tools.
+    "biotools": "",
+    // The keyword for link to the source on TeSS.
+    "tess": "",
+    // the DOI for the entry on FAIRsharing.org
+    "fairsharing": ""
+  },
+
+  // Other information sources
+  "Other": {
+    // Wikipedia page
+    "wikipedia": "",
+    // Dutch Research Software Directory
+    "rsd": ""
+  }
+
+}

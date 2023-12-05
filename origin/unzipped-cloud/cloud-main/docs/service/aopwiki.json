@@ -1,0 +1,26 @@
+{
+  "id": "aopwiki",
+  "service": "AOP-Wiki Snorql UI",
+  "description": "Graphical interface to an AOP-Wiki SPARQL endpoint.",
+  "screenshot": "aopwiki.png",
+  "url": "https://aopwiki.cloud.vhp4safety.nl/",
+  "doi": "10.1089/aivt.2021.0010",
+  "instance": {
+    "type": "VHP4Safety",
+    "vhp-platform": "Development",
+    "url": "https://aopwiki.cloud.vhp4safety.nl/"
+  },
+  "provider": {
+    "contact": {
+      "name": "Marvin Martens",
+      "email": "marvin.martens@maastrichtuniversity.nl"
+    },
+    "name": "BiGCaT, Maastricht University"
+  },
+  "access": {
+    "login": "No"
+  },
+  "ELIXIR": {
+    "biotools": "aop-wiki_rdf"
+  }
+}

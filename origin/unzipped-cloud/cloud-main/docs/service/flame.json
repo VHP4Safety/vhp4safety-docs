@@ -1,0 +1,19 @@
+{
+  "id": "flame",
+  "service": "Flame",
+  "description": "An open source framework for model development, hosting, and usage in production environments.",
+  "url": "http://flame.cloud.vhp4safety.nl:8098/",
+  "doi": "10.1186/s13321-021-00509-z",
+  "instance": {
+    "license": "GNU General Public License v3.0",
+    "version": "1.2.0",
+    "source": "https://github.com/phi-grib/flame",
+    "docker": "https://hub.docker.com/r/mpastorphi/flame",
+  },
+  "provider": {
+    "contact": {
+      "name": "Manuel Pastor",
+      "email": "manuel.pastor@upf.edu"
+    }
+  }
+}

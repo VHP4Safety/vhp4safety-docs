@@ -1,0 +1,27 @@
+{
+  "id": "qsprpred",
+  "service": "QSPRpred",
+  "description": "Service to train and employ QSAR and PCM models. Takes a compound structure and pretrained model as input and returns the predicted potency of said compound.",
+  "url": "https://github.com/CDDLeiden/QSPRpred",
+  "instance": {
+    "type": "VHP4Safety",
+    "vhp-platform": "External",
+    "license": "MIT"
+  },
+  "provider": {
+    "contact": {
+      "name": "Linde Schoenmaker",
+      "email": "l.schoenmaker@lacdr.leidenuniv.nl"
+    }
+  },
+  "access": {
+    "packages": {
+      "R": "no",
+      "Python": "yes"
+    }
+  },
+  "demo": {
+    "title": "Tutorial usage",
+    "url": "https://github.com/CDDLeiden/QSPRpred/blob/main/tutorial/tutorial_usage.ipynb"
+  }
+}

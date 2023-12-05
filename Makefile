@@ -1,48 +1,55 @@
 
 # Minimal makefile for Sphinx documentation
-#
-
-# get origin (docs from github 'cloud' repo)
+# get github repos (cloud en tutorials)
 origin: $(eval SHELL:=/bin/bash)
-	curl -L -o origin/main.zip https://github.com/VHP4Safety/cloud/archive/refs/heads/main.zip
-	unzip origin/main.zip -d origin/unzipped/
+	rm -rf origin
+	mkdir origin
+	curl -L -o origin/cloud-main.zip https://github.com/VHP4Safety/cloud/archive/refs/heads/main.zip
+	unzip origin/cloud-main.zip -d origin/unzipped-cloud/
+	curl -L -o origin/tutorials-main.zip https://github.com/VHP4Safety/vhp4safety-tutorials/archive/refs/heads/main.zip
+	unzip origin/tutorials-main.zip -d origin/unzipped-tutorials/
+	export OUT-SERVICE="service"
+	export IN-SERVICE="origin/unzipped-cloud/cloud-main/docs/service"
+	export OUT-TUTORIALS = "tutorials"
+	export IN-TUTORIALS = "origin/unzipped-tutorials/tutorials-main"
 
-OUT="Services"
-IN="origin/unzipped/cloud-main/docs/service"
+#build_from_origin: $(eval SHELL:=/bin/bash)
+## services
+#	pandoc --from=markdown --to=rst --output="$(OUT)/aopwiki/intro.rst" "$(IN)/aopwiki.md"
+#	pandoc --from=markdown --to=rst --output="$(OUT)/cdkdepict/intro.rst" "$(IN)/cdkdepict.md"
+#	pandoc --from=markdown --to=rst --output="$(OUT)/sysrev/intro.rst" "$(IN)/sysrev.md"
+#	pandoc --from=markdown --to=rst --output="$(OUT)/bridgedb/intro.rst" "$(IN)/bridgedb.md"
+#	pandoc --from=markdown --to=rst --output="$(OUT)/decimer/intro.rst" "$(IN)/decimer.md"
+#	pandoc --from=markdown --to=rst --output="$(OUT)/popgen/intro.rst" "$(IN)/popgen.md"
+#	pandoc --from=markdown --to=rst --output="$(OUT)/txg_mapr/intro.rst" "$(IN)/txg_mapr.md"
+#	pandoc --from=markdown --to=rst --output="$(OUT)/wikibase/intro.rst" "$(IN)/wikibase.md"
 
-build_from_origin: $(eval SHELL:=/bin/bash)
-	pandoc --from=markdown --to=rst --output="$(OUT)/aopwiki/intro.rst" "$(IN)/aopwiki.md"
-	pandoc --from=markdown --to=rst --output="$(OUT)/cdkdepict/intro.rst" "$(IN)/cdkdepict.md"
-	pandoc --from=markdown --to=rst --output="$(OUT)/sysrev/intro.rst" "$(IN)/sysrev.md"
-	pandoc --from=markdown --to=rst --output="$(OUT)/bridgedb/intro.rst" "$(IN)/bridgedb.md"
-	pandoc --from=markdown --to=rst --output="$(OUT)/decimer/intro.rst" "$(IN)/decimer.md"
-	pandoc --from=markdown --to=rst --output="$(OUT)/popgen/intro.rst" "$(IN)/popgen.md"
-	pandoc --from=markdown --to=rst --output="$(OUT)/txg_mapr/intro.rst" "$(IN)/txg_mapr.md"
-	pandoc --from=markdown --to=rst --output="$(OUT)/wikibase/intro.rst" "$(IN)/wikibase.md"
+## tutorials
 
 # update metadata
 metadata: 
-	python Services/aopwiki/meta.py
-	python Services/cdkdepict/meta.py
-	python Services/sysrev/meta.py
-	python Services/decimer/meta.py
-	python Services/popgen/meta.py
-	python Services/txg_mapr/meta.py
-	python Services/wikibase/meta.py
+	python service/aopwiki/meta.py
+	python service/cdkdepict/meta.py
+	python service/sysrev/meta.py
+	python service/decimer/meta.py
+	python service/popgen/meta.py
+	python service/txg_mapr/meta.py
+	python service/wikibase/meta.py
 
 # get images
 images: $(eval SHELL:=/bin/bash)
-	curl -o Services/aopwiki/aopwiki.png https://github.com/VHP4Safety/cloud/raw/main/docs/service/aopwiki.png
+	curl -o service/aopwiki/aopwiki.png https://github.com/VHP4Safety/cloud/raw/main/docs/service/aopwiki.png
 	
 
 # update catalog and clean up
 catalog: $(eval SHELL:=/bin/bash)
+	rm -rf tmp
 	mkdir tmp
 	rm -rf catalog.md
-	rm -rf Services/catalog.rst
+	rm -rf service/catalog.rst
 	curl -o tmp/catalog.md https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/catalog.md
 #	mdToRst catalog.md | tee Services/catalog.rst
-	pandoc --from=markdown --to=rst --output=Services/catalog.rst tmp/catalog.md
+	pandoc --from=markdown --to=rst --output=service/catalog.rst tmp/catalog.md
 	rm -rf tmp/catalog.md
 
 # You can set these variables from the command line, and also
