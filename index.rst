@@ -12,7 +12,7 @@ information, documentation, installation instructions and demos on how
 to use the software, models and data generated in the project.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    Introduction/intro.rst
@@ -20,7 +20,6 @@ to use the software, models and data generated in the project.
    Topics/Topics.rst
    Tutorials/Tutorials.rst
    Tutorials/cheminfo/intro.rst
-   Tutorials/bridgedb/gene_identifier_mapping.rst
    Tutorials/bridgedb/gene_hgnc_name_to_ensembl.md
    Tutorials/aoplink/aoplink_rmarkdown.rst
    Tutorials/sombie/site_of_metabolism_prediction.rst
