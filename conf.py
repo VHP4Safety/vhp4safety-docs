@@ -16,8 +16,8 @@ release = '0.0.1.9000'
 
 extensions = [
   "myst_parser",
-  "sphinx_design",
 ]
+#   "sphinx_design", --> broke creating the docs
 
 myst_enable_extensions = ["deflist"]
 
