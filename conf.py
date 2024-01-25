@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'VHP4Safety-Docs'
-copyright = '2023, Marc Teunis, PhD; Ozan Cinar, PhD; Egon Willigenhagen, PhD'
+copyright = '2023-2024, Marc Teunis, PhD; Ozan Cinar, PhD; Egon Willigenhagen, PhD'
 author = 'Marc Teunis, PhD; Ozan Cinar, PhD; Egon Willigenhagen, PhD'
 release = '0.0.1.9000'
 
