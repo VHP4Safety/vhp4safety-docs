@@ -4,6 +4,8 @@ output: html_document
 # date: "2023-03-30"
 ---
 
+# Mapping Gene Identifiers with BridgeDb
+
 Genes can have different identifiers in different databases. BridgeDb is a tool to map the identifiers from different databases. This tutorial presents how an exemplary [HGNC symbol](https://en.wikipedia.org/wiki/HUGO_Gene_Nomenclature_Committee) can be translated to its [Ensembl identifier](https://www.ensembl.org/info/genome/stable_ids/index.html) with BridgeDb. This work is based on the tutorial to show the use case of linking Adverse Outcome Pathways to [WikiPathways](https://www.wikipathways.org/) which was a part of the [OpenRiskNet](https://openrisknet.org/). The original tutorial using the Python language can be found [here](https://github.com/OpenRiskNet/notebooks/blob/master/BridgeDb/genes.ipynb). This tutorial follows the original one by replicating it in the R language. To do so, the [`httr`](https://cran.r-project.org/package=httr) R package is required. 
 
 
