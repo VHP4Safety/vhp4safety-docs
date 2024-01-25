@@ -16,6 +16,7 @@ release = '0.0.1.9000'
 
 extensions = [
   "myst_parser",
+  "myst_nb",
 ]
 #   "sphinx_design", --> broke creating the docs
 
