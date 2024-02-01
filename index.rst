@@ -15,23 +15,24 @@ to use the software, models and data generated in the project.
    :caption: Project Information
    :maxdepth: 2
    
-   Introduction/intro.rst
-   Topics/Topics.rst
+   introduction/intro.rst
+   introduction/mission_and_vision.md
+   topics/topics.rst
    
 .. toctree::
    :caption: Service Tutorials
    :maxdepth: 2
 
    .. Tutorials/Tutorials.rst
-   Tutorials/bridgedb/gene_hgnc_name_to_ensembl.md
-   Tutorials/sombie/site_of_metabolism_prediction.rst
+   tutorials/bridgedb/gene_hgnc_name_to_ensembl.md
+   tutorials/sombie/site_of_metabolism_prediction.rst
 
 .. toctree::
    :caption: Workflows
    :maxdepth: 2
 
-   Tutorials/aoplink/aoplink_rmarkdown.rst
-   Tutorials/cheminfo/intro.rst
+   tutorials/aoplink/aoplink_rmarkdown.rst
+   tutorials/cheminfo/intro.rst
    
 .. toctree::
    :caption: Service Catalog
@@ -51,7 +52,7 @@ to use the software, models and data generated in the project.
    :caption: Miscellaneous
    :maxdepth: 2
 
-   Templates/templates.rst
+   templates/templates.rst
    
       
 Indices and tables
