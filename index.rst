@@ -12,18 +12,32 @@ information, documentation, installation instructions and demos on how
 to use the software, models and data generated in the project.
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Contents:
-
+   :caption: Project Information
+   :maxdepth: 2
+   
    Introduction/intro.rst
-   Templates/templates.rst
    Topics/Topics.rst
-   Tutorials/Tutorials.rst
-   Tutorials/cheminfo/intro.rst
+   
+.. toctree::
+   :caption: Service Tutorials
+   :maxdepth: 2
+
+   .. Tutorials/Tutorials.rst
    Tutorials/bridgedb/gene_hgnc_name_to_ensembl.md
-   Tutorials/aoplink/aoplink_rmarkdown.rst
    Tutorials/sombie/site_of_metabolism_prediction.rst
-   service/catalog.rst
+
+.. toctree::
+   :caption: Workflows
+   :maxdepth: 2
+
+   Tutorials/aoplink/aoplink_rmarkdown.rst
+   Tutorials/cheminfo/intro.rst
+   
+.. toctree::
+   :caption: Service Catalog
+   :maxdepth: 2
+
+   .. service/catalog.rst
    service/aopwiki/aopwiki.rst
    service/bridgedb/bridgedb.rst
    service/cdkdepict/cdkdepict.rst
@@ -32,6 +46,13 @@ to use the software, models and data generated in the project.
    service/sysrev/sysrev.rst
    service/txg_mapr/txg_mapr.rst
    service/wikibase/wikibase.rst
+
+.. toctree::
+   :caption: Miscellaneous
+   :maxdepth: 2
+
+   Templates/templates.rst
+   
       
 Indices and tables
 ==================
