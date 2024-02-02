@@ -273,7 +273,7 @@ par(mar = c(0, 0, 0, 0))
 plot(pathway_plot)
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+![](aop_plot.png)
 
 
 ```r
