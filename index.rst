@@ -31,7 +31,7 @@ to use the software, models and data generated in the project.
    :caption: Workflows
    :maxdepth: 2
 
-   tutorials/aoplink/aoplink_rmarkdown.rst
+   tutorials/aoplink/aoplink.md
    tutorials/cheminfo/intro.rst
    
 .. toctree::
