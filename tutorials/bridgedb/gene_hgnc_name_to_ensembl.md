@@ -1,12 +1,4 @@
 
-.. table:: Metadata
-   :widths: auto
-
-   =====      =====
-   Author(s)  Ozan Çınar <https://orcid.org/0000-0003-0329-1977>
-   License    ?
-   =====      =====
-
 # BridgeDb: Mapping Gene Identifiers
 
 ## Using BridgeDb with `R`
