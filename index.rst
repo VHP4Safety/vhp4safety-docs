@@ -25,7 +25,7 @@ to use the software, models and data generated in the project.
 
    .. Tutorials/Tutorials.rst
    tutorials/bridgedb/gene_hgnc_name_to_ensembl.md
-   tutorials/sombie/site_of_metabolism_prediction.rst
+   tutorials/sombie/site_of_metabolism_prediction.md
 
 .. toctree::
    :caption: Workflows
