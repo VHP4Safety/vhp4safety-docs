@@ -5,13 +5,12 @@
 ```
 Graphical interface to an AOP-Wiki SPARQL endpoint.
 
-<!-- The markdown syntax does not allow to resize the image; we will use the htmll syntax instead. See below.--->
 <!---![screenshot of
 %service%](https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/aopwiki.png "Click on the image to go to the service")--->
 
-<img src='https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/aopwiki.png' width='200' height='200'>\
+<img src='https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/aopwiki.png' alt="drawing" width='200' height='200'>
 
-\## Service
+## Service
 
 -   cloud: <https://aopwiki.cloud.vhp4safety.nl/> []()
 -   Login required: No

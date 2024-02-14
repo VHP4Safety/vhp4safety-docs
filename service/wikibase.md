@@ -5,14 +5,12 @@
 ```
 A Wikibase instance to hold information about compounds.
 
-<!-- The markdown syntax does not allow to resize the image; we will use the htmll syntax instead. See below.--->
-
 <!---![screenshot of
 %service%](https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/VHP4Safety_ChemicalCompounds.png "Click on the image to go to the service")--->
 
-<img src='https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/VHP4Safety_ChemicalCompounds.png' width='200' height='200'>\
+<img src='https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/VHP4Safety_ChemicalCompounds.png' alt="drawing" width='200' height='200'>
 
-\## VHP4Safety Service
+## Service
 
 -   Development cloud: <https://compoundcloud.wikibase.cloud/> []()
 -   Login required: No

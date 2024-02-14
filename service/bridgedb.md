@@ -6,9 +6,12 @@
 A framework to map identifiers between various biological databases and
 related sources.
 
-![screenshot of
-%service%](https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/bridgedb.png "Click on the image to go to the service")
-\## Service
+<!---![screenshot of
+%service%](https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/bridgedb.png "Click on the image to go to the service")--->
+
+<img src='https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/bridgedb.png' alt="drawing" width='200' height='200'>
+
+## Service
 
 -   cloud: <https://bridgedb.cloud.vhp4safety.nl/> []()
 -   Login required: no
@@ -83,6 +86,7 @@ function initTeSSWidgets() {
 -   [ ] Provides legal and ethical statements on how the service can be
     used.
 
+<!---
 ```{=html}
 <script type="application/ld+json">
 {
@@ -98,3 +102,4 @@ function initTeSSWidgets() {
 }
 </script>
 ```
+--->

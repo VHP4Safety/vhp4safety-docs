@@ -39,14 +39,14 @@ to use the software, models and data generated in the project.
    :maxdepth: 2
 
    .. service/catalog.rst
-   service/aopwiki/aopwiki.rst
-   service/bridgedb/bridgedb.rst
-   service/cdkdepict/cdkdepict.rst
-   service/decimer/decimer.rst
-   service/popgen/popgen.rst
-   service/sysrev/sysrev.rst
-   service/txg_mapr/txg_mapr.rst
-   service/wikibase/wikibase.rst
+   service/aopwiki.md
+   service/bridgedb.md
+   service/cdkdepict.md
+   service/decimer.md
+   service/popgen.md
+   service/sysrev.md
+   service/txg_mapr.md
+   service/wikibase.md
 
 .. toctree::
    :caption: Miscellaneous
