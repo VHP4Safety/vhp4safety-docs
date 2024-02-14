@@ -37,7 +37,7 @@ to use the software, models and data generated in the project.
    
 .. toctree::
    :caption: Service Catalog
-   :maxdepth: 1
+   :titlesonly:
 
    .. service/catalog.rst
    service/aopwiki.md
