@@ -5,8 +5,13 @@
 ```
 A Wikibase instance to hold information about compounds.
 
-![screenshot of
-%service%](https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/VHP4Safety_ChemicalCompounds.png "Click on the image to go to the service")
+<!-- The markdown syntax does not allow to resize the image; we will use the htmll syntax instead. See below.--->
+
+<!---![screenshot of
+%service%](https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/VHP4Safety_ChemicalCompounds.png "Click on the image to go to the service")--->
+
+<img src='https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/VHP4Safety_ChemicalCompounds.png' width='200' height='200'>\
+
 \## VHP4Safety Service
 
 -   Development cloud: <https://compoundcloud.wikibase.cloud/> []()
@@ -82,6 +87,7 @@ function initTeSSWidgets() {
 -   [ ] Provides legal and ethical statements on how the service can be
     used.
 
+<!---
 ```{=html}
 <script type="application/ld+json">
 {
@@ -97,3 +103,4 @@ function initTeSSWidgets() {
 }
 </script>
 ```
+--->

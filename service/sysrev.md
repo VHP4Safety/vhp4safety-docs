@@ -81,6 +81,7 @@ function initTeSSWidgets() {
 -   [ ] Provides legal and ethical statements on how the service can be
     used.
 
+<!---
 ```{=html}
 <script type="application/ld+json">
 {
@@ -96,3 +97,4 @@ function initTeSSWidgets() {
 }
 </script>
 ```
+--->

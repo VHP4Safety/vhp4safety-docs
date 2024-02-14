@@ -5,8 +5,15 @@
 ```
 A webservice the converts a SMILES into 2D depictions (SVG or PNG).
 
+<!-- The markdown syntax does not allow to resize the image; we will use the htmll syntax instead. See below.--->
+
+<!--
 ![screenshot of
 %service%](https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/cdkdepict.png "Click on the image to go to the service")
+---> 
+
+<img src='https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/cdkdepict.png' width='200' height='200'>\
+
 \## Service
 
 -   cloud: <https://cdkdepict.cloud.vhp4safety.nl/> []()
@@ -82,6 +89,7 @@ function initTeSSWidgets() {
 -   [ ] Provides legal and ethical statements on how the service can be
     used.
 
+<!---
 ```{=html}
 <script type="application/ld+json">
 {
@@ -97,3 +105,4 @@ function initTeSSWidgets() {
 }
 </script>
 ```
+--->

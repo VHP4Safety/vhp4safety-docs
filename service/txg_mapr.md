@@ -7,8 +7,15 @@ An R-Shiny-based implementation of weighted gene co-expression network
 analysis (WGCNA) obtained from the Primary Human Hepatocytes (PHH)
 TG-GATEs dataset.
 
+<!-- The markdown syntax does not allow to resize the image; we will use the htmll syntax instead. See below.--->
+
+<!---<img src='https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/aopwiki.png' width='200' height='200'>\
 ![screenshot of
-%service%](https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/txg_mapr.png "Click on the image to go to the service")
+%service%](https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/txg_mapr.png "Click on the image to go to the service")--->
+
+<img src='https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/txg_mapr.png' width='200' height='200'>\
+
+
 \## VHP4Safety Service
 
 -   cloud: <https://txg-mapr.eu/> []()
@@ -84,6 +91,7 @@ function initTeSSWidgets() {
 -   [ ] Provides legal and ethical statements on how the service can be
     used.
 
+<!---
 ```{=html}
 <script type="application/ld+json">
 {
@@ -99,3 +107,4 @@ function initTeSSWidgets() {
 }
 </script>
 ```
+--->
