@@ -37,12 +37,13 @@ to use the software, models and data generated in the project.
    
 .. toctree::
    :caption: Service Catalog
-   :maxdepth: 2
+   :maxdepth: 1
 
    .. service/catalog.rst
    service/aopwiki.md
    service/bridgedb.md
    service/cdkdepict.md
+   service/cplogd.md
    service/decimer.md
    service/popgen.md
    service/sysrev.md
