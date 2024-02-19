@@ -37,19 +37,12 @@ A webservice the converts a SMILES into 2D depictions (SVG or PNG).
 -   Bio.tools: <https://bio.tools/cdk_depict>
 -   TeSS:
 
-```{=html}
-<h3 id="tess-widget-materials-header">
-```
-```{=html}
-</h3>
-```
-::: {#tess-widget-materials-list .tess-widget .tess-widget-list}
-:::
+<h3 id="tess-widget-materials-header"></h3>
 
-```{=html}
+<div id="tess-widget-materials-list" class="tess-widget tess-widget-list"></div>
 <script>
 function initTeSSWidgets() {
-    var query = '';
+    var query = 'cdk depict';
     if (query.trim() != "") {
         TessWidget.Materials(document.getElementById('tess-widget-materials-list'),
             'SimpleList',
@@ -66,10 +59,9 @@ function initTeSSWidgets() {
     }
 }
 </script>
-```
-```{=html}
 <script async="" defer="" src="https://elixirtess.github.io/TeSS_widgets/js/tess-widget-standalone.js" onload="initTeSSWidgets()"></script>
-```
+
+
 ## Tool integration
 
 -   [ ] Utilises the VHP4Safety APIs to ensure that each service is

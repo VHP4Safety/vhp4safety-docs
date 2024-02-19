@@ -31,16 +31,9 @@ Service to generate online virtual human population.
 -   Bio.tools:
 -   TeSS:
 
-```{=html}
-<h3 id="tess-widget-materials-header">
-```
-```{=html}
-</h3>
-```
-::: {#tess-widget-materials-list .tess-widget .tess-widget-list}
-:::
+<h3 id="tess-widget-materials-header"></h3>
 
-```{=html}
+<div id="tess-widget-materials-list" class="tess-widget tess-widget-list"></div>
 <script>
 function initTeSSWidgets() {
     var query = '';
@@ -60,10 +53,8 @@ function initTeSSWidgets() {
     }
 }
 </script>
-```
-```{=html}
 <script async="" defer="" src="https://elixirtess.github.io/TeSS_widgets/js/tess-widget-standalone.js" onload="initTeSSWidgets()"></script>
-```
+
 ## Tool integration
 
 -   [ ] Utilises the VHP4Safety APIs to ensure that each service is
