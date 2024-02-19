@@ -7,7 +7,7 @@ Service to support literature research.
 
 ## External Service
 
--   cloud: <https://sysrev.com/> []()
+-   cloud: [https://sysrev.com/](https://sysrev.com/)
 -   Login required: Yes
 -   Implementation status:
 -   TRL:

@@ -14,7 +14,7 @@ A webservice the converts a SMILES into 2D depictions (SVG or PNG).
 
 ## Service
 
--   cloud: <https://cdkdepict.cloud.vhp4safety.nl/> []()
+-   cloud: [https://cdkdepict.cloud.vhp4safety.nl/](https://cdkdepict.cloud.vhp4safety.nl/)
 -   Login required: no
 -   Implementation status:
 -   TRL: TRL 8 - system complete and qualified

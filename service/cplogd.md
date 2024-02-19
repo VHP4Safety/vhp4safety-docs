@@ -7,7 +7,7 @@ A model to predict water–octanol distribution coefficient (logD) for chemical 
 
 ## External Service
 
-* Development cloud: [https://cplogd.cloud.vhp4safety.nl/](https://cplogd.cloud.vhp4safety.nl/) []()
+* Development cloud: [https://cplogd.cloud.vhp4safety.nl/](https://cplogd.cloud.vhp4safety.nl/)
 * Login required: 
 * Implementation status: 
 * TRL: 

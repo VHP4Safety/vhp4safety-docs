@@ -13,7 +13,7 @@ related sources.
 
 ## Service
 
--   cloud: <https://bridgedb.cloud.vhp4safety.nl/> []()
+-   cloud: [https://bridgedb.cloud.vhp4safety.nl/](https://bridgedb.cloud.vhp4safety.nl/)
 -   Login required: no
 -   Implementation status:
 -   TRL:

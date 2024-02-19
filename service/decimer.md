@@ -12,7 +12,7 @@ Online service to extract chemical structures from PDFs and images.
 
 ## Service
 
--   cloud: <https://decimer.ai/> []()
+-   cloud: [https://decimer.ai/](https://decimer.ai/)
 -   Login required: No
 -   Implementation status:
 -   TRL:

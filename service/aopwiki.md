@@ -12,7 +12,7 @@ Graphical interface to an AOP-Wiki SPARQL endpoint.
 
 ## Service
 
--   cloud: <https://aopwiki.cloud.vhp4safety.nl/> []()
+-   cloud: [https://aopwiki.cloud.vhp4safety.nl/](https://aopwiki.cloud.vhp4safety.nl/)
 -   Login required: No
 -   Implementation status:
 -   TRL:

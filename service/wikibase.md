@@ -12,7 +12,7 @@ A Wikibase instance to hold information about compounds.
 
 ## Service
 
--   Development cloud: <https://compoundcloud.wikibase.cloud/> []()
+-   Development cloud: [https://compoundcloud.wikibase.cloud/](https://compoundcloud.wikibase.cloud/)
 -   Login required: No
 -   Implementation status:
 -   TRL:

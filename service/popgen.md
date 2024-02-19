@@ -7,7 +7,7 @@ Service to generate online virtual human population.
 
 ## External Service
 
--   cloud: <http://xnet.hsl.gov.uk/Popgen/> []()
+-   cloud: [http://xnet.hsl.gov.uk/Popgen/](http://xnet.hsl.gov.uk/Popgen/)
 -   Login required: No
 -   Implementation status:
 -   TRL:
