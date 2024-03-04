@@ -51,6 +51,12 @@ to use the software, models and data generated in the project.
    service/wikibase.md
 
 .. toctree::
+   :caption: Sustainability
+   :maxdepth: 2
+
+   sustainability/icinga_checks.md
+
+.. toctree::
    :caption: Miscellaneous
    :maxdepth: 2
 
