@@ -15,9 +15,12 @@ to use the software, models and data generated in the project.
    :caption: Project Information
    :maxdepth: 2
    
-   introduction/intro.rst
+   .. introduction/intro.rst
    introduction/mission_and_vision.md
-   topics/topics.rst
+   introduction/research_lines.md
+   introduction/partners_and_consortium.md
+   introduction/contact.md
+   .. topics/topics.rst
    
 .. toctree::
    :caption: Service Tutorials
