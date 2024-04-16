@@ -16,7 +16,7 @@ First we need to load the Python library to allow calls to the [BridgeDb REST we
 import requests
 ```
 
-Let's assume we're interested in the gene with HGNC MECP2 (FIXME: look up a gene in AOPWiki), the API call to make mappings is given below as `callUrl`. Here, the `H` indicates that the query (`MECP2`) is an HGNC symbol:
+Let's assume we're interested in the gene with HGNC MECP2, the API call to make mappings is given below as `callUrl`. Here, the `H` indicates that the query (`MECP2`) is an HGNC symbol:
 
 
 ```python
@@ -79,6 +79,8 @@ response.text
 ## Using BridgeDb with `R`
 
 Genes can have different identifiers in different databases. BridgeDb is a tool to map the identifiers from different databases. This tutorial presents how an exemplary [HGNC symbol](https://en.wikipedia.org/wiki/HUGO_Gene_Nomenclature_Committee) can be translated to its [Ensembl identifier](https://www.ensembl.org/info/genome/stable_ids/index.html) with BridgeDb. This work is based on the tutorial to show the use case of linking Adverse Outcome Pathways to [WikiPathways](https://www.wikipathways.org/) which was a part of the [OpenRiskNet](https://openrisknet.org/). The original tutorial using the Python language can be found [here](https://github.com/OpenRiskNet/notebooks/blob/master/BridgeDb/genes.ipynb). This tutorial follows the original one by replicating it in the R language. To do so, the [`httr`](https://cran.r-project.org/package=httr) R package is required. 
+
+The `R` script for this tutorial can be found [here](https://github.com/VHP4Safety/vhp4safety-docs/blob/main/tutorials/bridgedb/gene_hgnc_name_to_ensembl.r). 
 
 
 ```r
