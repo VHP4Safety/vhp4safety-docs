@@ -1,7 +1,7 @@
 
 # BridgeDb: Mapping Gene Identifiers
 
-<a target="_blank" href="https://colab.research.google.com/github/OpenRiskNet/notebooks/blob/master/BridgeDb/genes.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/VHP4Safety/vhp4safety-docs/blob/main/tutorials/bridgedb/gene_hgnc_name_to_ensembl.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab (Python Script)"/>
 </a>
 
