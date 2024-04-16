@@ -1,8 +1,12 @@
 # SOM Prediction: Site-of-Metabolism Prediction
 
+<a target="_blank" href="https://colab.research.google.com/github/VHP4Safety/vhp4safety-docs/blob/main/tutorials/sombie/site_of_metabolism_prediction.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab (Python Script)"/>
+</a>
+
 ## Using SOM Prediction with `Python`
 
-This page presents a tutorial for [SOM Prediction](https://cloud.vhp4safety.nl/service/sombie.html). The tutorial uses Python language and the tutorial is still under development. The Jupyter Notebook file for this tutorial can be found [here](https://github.com/VHP4Safety/vhp4safety-docs/blob/main/tutorials/sombie/site_of_metabolism_prediction.ipynb).
+This page presents a tutorial for [SOM Prediction](https://cloud.vhp4safety.nl/service/sombie.html). The tutorial uses Python language and the tutorial is still under development. The Jupyter Notebook file for this tutorial can be found [here](https://github.com/VHP4Safety/vhp4safety-docs/blob/main/tutorials/sombie/site_of_metabolism_prediction.ipynb). In addition, this tutorial can be run interactively with Google Colab [here](https://colab.research.google.com/github/VHP4Safety/vhp4safety-docs/blob/main/tutorials/sombie/site_of_metabolism_prediction.ipynb) (you can also click the Google Colab badge at the top of this page). 
 
 
 ```python
