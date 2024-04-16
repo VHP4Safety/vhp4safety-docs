@@ -1,3 +1,10 @@
+
+# BridgeDb: Mapping Gene Identifiers
+
+<a target="_blank" href="https://colab.research.google.com/github/VHP4Safety/vhp4safety-docs/blob/main/tutorials/bridgedb/gene_hgnc_name_to_ensembl.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab (Python Script)"/>
+</a>
+
 ## Using BridgeDb with `Python`
 
 This tutorial explains how to use the BridgeDb identifier mapping service to translate HGNC names to Ensembl identifiers with Python (using a Jupyter Notebook). This step has been created as a part of the OpenRiskNet use case to link Adverse Outcome Pathways to [WikiPathways](https://wikipathways.org/). The original tutorial can be found [here](https://github.com/OpenRiskNet/notebooks/blob/master/BridgeDb/genes.ipynb). Additionally, this tutorial can be interactively run through the Google Colab found [here](https://colab.research.google.com/github/VHP4Safety/vhp4safety-docs/blob/main/tutorials/bridgedb/gene_hgnc_name_to_ensembl.ipynb) (you can also click the Google Colab badge at the top of this page). 
