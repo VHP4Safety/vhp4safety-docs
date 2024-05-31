@@ -1,24 +1,66 @@
+
+################################################################################
+### AOPLink: Extracting and analyzing data related to an AOP of interest
+
+# This is an R script to replicate the AOPLink workflow presented here:
+# https://github.com/OpenRiskNet/notebooks/blob/master/AOPLink/Extracting%20and%20analysing%20data%20related%20to%20an%20AOP%20of%20interest.ipynb
+################################################################################
+
+
+################################################################################
+### Installing and loading the SPARQL package
+
+# Note that the SPARQL package is available on CRAN only in the archive. So, one
+# needs to download the .tar.gz file from the archives (here version 1.16 is 
+# used) and install the package from the source file.
+
+# Installing the SPARQL package from the source file. 
+# install.packages("path_to_the_file", repos=NULL, type="source")
+
+# Loading the SPARQL package
 library(SPARQL)
+library(httr)
+library(png)
+library(magick)
 library(flextable)
 library(igraph)
-# library(networkD3)
+library(networkD3)
+################################################################################
 
-## # Installing the SPARQL package from the source file.
-## install.packages("path_to_the_file", repos=NULL, type="source")
 
+################################################################################
+### Defining the AOP of interest
+
+# State the number of the AOP of interest as indicated on AOP-Wiki. Here we use
+# AOP with the id number of 37 (https://aopwiki.org/aops/37).
 aop_id <- 37
+################################################################################
 
-# SPARQL endpoint URLs
+
+################################################################################
+### Setting the service URLs
+
+# SPARQL endpoint URLs.
 aopwikisparql       <- "https://aopwiki.cloud.vhp4safety.nl/sparql/"
 aopdbsparql         <- "http://aopdb.rdf.bigcat-bioinformatics.org/sparql/"
 wikipathwayssparql  <- "http://sparql.wikipathways.org/sparql/"
 
-# ChemIdConvert URL
+# ChemIdConvert and CDK Depict URLs.
 chemidconvert <- "https://chemidconvert.cloud.douglasconnect.com/v1/"
+cdkdepict     <- "https://cdkdepict.cloud.vhp4safety.nl/"
 
-# BridgeDB base URL
+# BridgeDB base URL.
 bridgedb <- "http://bridgedb.cloud.vhp4safety.nl/"
 
+# EdelweissData API URL.
+edelweiss_api_url <- "https://api.staging.kit.cloud.douglasconnect.com"
+################################################################################
+
+
+################################################################################
+### AOP-Wiki RDF
+
+## Creating the overview table
 
 # Defining all variables as ontology terms present in AOP-Wiki RDF.
 title                       <- "dc:title"
@@ -47,12 +89,14 @@ for (i in 1:length(list_of_terms)) {
                   WHERE{
                   ?AOP_URI a aopo:AdverseOutcomePathway;', term, ' ?item.
                   FILTER (?AOP_URI = aop:', aop_id, ')}'
-)
+  )
   res <- SPARQL(aopwikisparql, query)
   aop_info[i, "properties"] <- res$results$items
 }
 
 flextable(aop_info)
+
+### Generating AOP Network
 
 key_events <- aop_info[aop_info$term == "aopo:has_key_event", "properties"]
 key_events <- unlist(strsplit(key_events, ";"))
@@ -96,7 +140,7 @@ kers  <- unique(kers)
 
 # ke_title <- unique(unlist(ke_title))
 ke_title <- data.frame("key_event" = names(unlist(ke_title)), 
-                  "title" = unlist(ke_title))
+                       "title" = unlist(ke_title))
 ke_title <- ke_title[!duplicated(ke_title), ]
 ke_title
 
@@ -104,7 +148,6 @@ ke_title
 kes_intermediate <- kes[!(kes %in% mies) & !(kes %in% aos)]
 
 # Creating the AOP plot
-# library(SPARQL)
 pathway <- list()
 for (i in 1:length(kers)) {
   ker   <- kers[i]
@@ -114,8 +157,6 @@ for (i in 1:length(kers)) {
                 ?KE_UP_URI rdfs:label ?KE_UP_ID.
                 ?KE_DOWN_URI rdfs:label ?KE_DOWN_ID.
                 FILTER (?KER_ID = "', ker, '")}')
-  # tmp <- SPARQL(aopwikisparql, query)
-  # pathway[[i]] <- tmp$results
   pathway[[i]] <- SPARQL(aopwikisparql, query)$results
   names(pathway)[i] <- ker
 }
@@ -127,13 +168,17 @@ pathway_color[names(V(pathway_plot)) %in% mies]              <- "green"
 pathway_color[names(V(pathway_plot)) %in% kes_intermediate]  <- "yellow"
 pathway_color[names(V(pathway_plot)) %in% aos]               <- "red"
 V(pathway_plot)$color <- pathway_color
-par(mar = c(0, 0, 0, 0))
 plot(pathway_plot)
 
-# A very basic interactive graph can be created in RStudio with:
-# networkD3::simpleNetwork(as.data.frame(matrix(unlist(pathway), 
-#                                               byrow=TRUE, ncol=2)))
+# An interactive graph. 
+# https://r-graph-gallery.com/network-interactive.html
+# simpleNetwork(as.data.frame(matrix(unlist(pathway), byrow=TRUE, ncol=2)))
+simpleNetwork(as.data.frame(matrix(unlist(pathway), byrow=TRUE, ncol=2)), 
+              opacity=1, linkColour="orange", nodeColour="green", fontSize=12)
 
+# Also see https://kateto.net/network-visualization
+
+## Query all chemicals that are part of the selected AOP
 query <- paste0('PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
                 SELECT ?CAS_ID (fn:substring(?CompTox,33) as ?CompTox_ID) ?Chemical_name
                 WHERE{
@@ -143,6 +188,9 @@ query <- paste0('PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.ow
                 OPTIONAL {?Chemical cheminf:000568 ?CompTox.}
                 FILTER (?AOP_URI = aop:', aop_id, ')}
                 ')
+# Note that the above query is slightly different from the original one. One  
+# needs to change "cheminf:CHEMINF_000xxx" to ""cheminf:000xxx" to get the query 
+# run.
 
 res <- SPARQL(aopwikisparql, query)
 res <- res$results[, c("Chemical_name", "CAS_ID", "CompTox_ID")]
@@ -152,3 +200,25 @@ res
 
 # CAS-IDs of the compounds
 res$CAS_ID
+
+
+### ChemIdConvert and CDK Depict
+compoundstable <- data.frame(CAS_ID=res$CAS_ID, Smiles=NA, InChiKey=NA)
+
+for(i in 1:nrow(compoundstable)) {
+  compoundstable$Smiles[i]    <- content(GET(paste0(chemidconvert, "cas/to/smiles?cas=", compoundstable$CAS_ID[i])))$smiles
+  compoundstable$InChiKey[i]  <- content(GET(paste0(chemidconvert, "cas/to/inchikey?cas=", compoundstable$CAS_ID[i])))$inchikey
+}
+compoundstable
+
+for(i in 1:nrow(compoundstable)) {
+  tmp <- GET(paste0(cdkdepict, "depict/bot/png?smi=", compoundstable$Smiles[i], "%20", compoundstable$CAS_ID[i], "&showtitle=true&abbr=on&zoom=1.5"))
+  writePNG(content(tmp), target=paste0(compoundstable$CAS_ID[i], "_test.png"))
+}
+
+par(mfrow=c(4, 2))
+for(i in 1:nrow(compoundstable)){
+  img <- image_read(paste0(compoundstable$CAS_ID[i], "_test.png"))
+  plot(img)
+}
+
