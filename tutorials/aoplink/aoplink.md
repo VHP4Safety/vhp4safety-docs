@@ -1,18 +1,34 @@
 
 # AOPLink: Extracting and Analyzing Data Related to an AOP of Interest
 
-This workflow has originally been created in the OpenRiskNet. The original work can be seen [at this link](https://github.com/OpenRiskNet/notebooks/blob/master/AOPLink/Extracting%20and%20analysing%20data%20related%20to%20an%20AOP%20of%20interest.ipynb). Here, we present a reproduction of the workflow in the `R` language. The R-Markdown file that includes the codes used in this tutorial can be found [here](https://github.com/VHP4Safety/vhp4safety-docs/blob/main/tutorials/aoplink/aoplink.r). 
+*This workflow has originally been created in the OpenRiskNet. The original work can be seen [at this link](https://github.com/OpenRiskNet/notebooks/blob/master/AOPLink/Extracting%20and%20analysing%20data%20related%20to%20an%20AOP%20of%20interest.ipynb). Here, we present a reproduction of the workflow in the `R` language. However, please note that this is not an exact replication of the original workflow as some of the tools that are used in the original work are not available anymore, thus, removed or replaced in this reproduction. The R-Markdown file that includes the codes used in this tutorial can be found [here](https://github.com/VHP4Safety/vhp4safety-docs/blob/main/tutorials/aoplink/aoplink.r).*
+
+**Citation:** Marvin Martens, Thomas Exner, Tomaž Mohorič, Chris T Evelo, Egon L Willighagen. Workflow for extracting and analyzing data related to an AOP of interest. 2020
+
+One of the main questions to solve in AOPLink is the finding of data that supports an AOP of interest. To answer that, we have developed this workflow that does that by using a variety of online services:
+
+- AOP-Wiki RDF
+- CDK Depict
+- AOP-DB RDF
+- BridgeDb (*to be added*)
+- EdelweissData explorer (*to be added*)
+- WikiPathways (*to be added*)
+
+After selecting an AOP of interest, information is extracted from the AOP-Wiki RDF, CDK Depict, and AOP-DB RDF, to get a better understanding of the AOP.
 
 ### Loading the Required Packages
 
 A few packages needed to be loaded in order to complete the workflow.
 
 
-```r
+``` r
 library(SPARQL)
+library(httr)
+library(png)
+library(magick)
 library(flextable)
 library(igraph)
-# library(networkD3)
+# library(networkD3)  # To be used for an interactive AOP plot, if preferred
 ```
 
 Note that the SPARQL package is available on CRAN only in the archive. So, one needs to download the `.tar.gz` file from the archives (here version 1.16 is used) and install the package from the source file that can be found [here](https://cran.r-project.org/src/contrib/Archive/SPARQL/).
@@ -38,14 +54,15 @@ aop_id <- 37
 Throughout the workflow, we are going to use several online services such as SPARQL endpoints. Here, these services are defined.
 
 
-```r
+``` r
 # SPARQL endpoint URLs
 aopwikisparql       <- "https://aopwiki.cloud.vhp4safety.nl/sparql/"
 aopdbsparql         <- "http://aopdb.rdf.bigcat-bioinformatics.org/sparql/"
 wikipathwayssparql  <- "http://sparql.wikipathways.org/sparql/"
 
-# ChemIdConvert URL
+# ChemIdConvert and CDK Depict URLs
 chemidconvert <- "https://chemidconvert.cloud.douglasconnect.com/v1/"
+cdkdepict     <- "https://cdkdepict.cloud.vhp4safety.nl/"
 
 # BridgeDB base URL
 bridgedb <- "http://bridgedb.cloud.vhp4safety.nl/"
@@ -147,6 +164,8 @@ background-color: transparent;
     margin: 0 0 !important;
 }</style><table data-quarto-disable-processing='true' class='cl-b66e763a'><thead><tr style="overflow-wrap:break-word;"><th class="cl-b66af9ba"><p class="cl-b66ae484"><span class="cl-b667d7a8">term</span></p></th><th class="cl-b66af9ba"><p class="cl-b66ae484"><span class="cl-b667d7a8">properties</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">dc:title</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">PPARα activation leading to hepatocellular adenomas and carcinomas in rodents</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">foaf:page</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop/37</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">dc:creator</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">J. Christopher Corton, Cancer AOP Workgroup. National Health and Environmental Effects Research Laboratory, Office of Research and Development, Integrated Systems Toxicology Division, US Environmental Protection Agency, Research Triangle Park, NC. Corresponding author for wiki entry (corton.chris@epa.gov)</span><br></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">dcterms:abstract</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">Several therapeutic agents and industrial chemicals induce liver tumors in rats and mice through the activation of the peroxisome proliferator-activated receptor alpha (PPAR&amp;alpha;). The molecular and cellular events by which PPAR&amp;alpha; activators induce rodent hepatocarcinogenesis have been extensively studied and elucidated. The weight of evidence relevant to the hypothesized AOP for PPAR&amp;alpha; activator-induced rodent hepatocarcinogenesis is summarized here. Chemical-specific and mechanistic data support concordance of temporal and dose&amp;ndash;response relationships for the key events associated with many PPAR&amp;alpha; activators including a phthalate ester plasticizer di(2-ethylhexyl)phthalate (DEHP) and the drug gemfibrozil. The key events (KE) identified include the MIE &amp;ndash; PPAR&amp;alpha; activation measured as a characteristic change in gene expression,&amp;nbsp;&amp;nbsp;KE2&amp;nbsp;&amp;ndash; increased enzyme activation, characteristically those involved in lipid metabolism and cell cycle control, KE3&amp;nbsp;&amp;ndash; increased cell proliferation, KE4 &amp;ndash; selective clonal expansion of preneoplastic foci, and the AO &amp;ndash; &amp;nbsp;&amp;ndash; increases in hepatocellular adenomas and carcinomas. &amp;nbsp;Other biological&amp;nbsp;factors modulate the effects of PPAR&amp;alpha; activators.These modulating events include increases in oxidative stress, activation of NF-kB, and inhibition of gap junction intercellular communication. The occurrence of hepatocellular adenomas and carcinomas is specific to mice and rats. The occurrence of the various KEs in&amp;nbsp;hamsters, guinea pigs,&amp;nbsp;cynomolgous monkeys are generally absent.</span><br></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">aopo:has_key_event</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop.events/1170;https://identifiers.org/aop.events/1171;https://identifiers.org/aop.events/227;https://identifiers.org/aop.events/716;https://identifiers.org/aop.events/719</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">aopo:has_molecular_initiating_event</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop.events/227</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">aopo:has_adverse_outcome</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop.events/719</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">aopo:has_key_event_relationship</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop.relationships/1229;https://identifiers.org/aop.relationships/1230;https://identifiers.org/aop.relationships/1232;https://identifiers.org/aop.relationships/1239;https://identifiers.org/aop.relationships/2252;https://identifiers.org/aop.relationships/2253;https://identifiers.org/aop.relationships/2254</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9ce"><p class="cl-b66ae484"><span class="cl-b667d7a8">ncit:C54571</span></p></td><td class="cl-b66af9ce"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop.stressor/11;https://identifiers.org/aop.stressor/175;https://identifiers.org/aop.stressor/191;https://identifiers.org/aop.stressor/205;https://identifiers.org/aop.stressor/206;https://identifiers.org/aop.stressor/207;https://identifiers.org/aop.stressor/208;https://identifiers.org/aop.stressor/210;https://identifiers.org/aop.stressor/211</span></p></td></tr></tbody></table></div>
 
+### Generating AOP Network
+
 
 ```r
 key_events <- aop_info[aop_info$term == "aopo:has_key_event", "properties"]
@@ -244,9 +263,8 @@ kes_intermediate <- kes[!(kes %in% mies) & !(kes %in% aos)]
 ```
 
 
-```r
+``` r
 # Creating the AOP plot
-# library(SPARQL)
 pathway <- list()
 for (i in 1:length(kers)) {
   ker   <- kers[i]
@@ -276,10 +294,11 @@ plot(pathway_plot)
 ![](aop_plot.png)
 
 
-```r
+``` r
 # A very basic interactive graph can be created in RStudio with:
-# networkD3::simpleNetwork(as.data.frame(matrix(unlist(pathway), 
-#                                               byrow=TRUE, ncol=2)))
+# networkD3::simpleNetwork(as.data.frame(matrix(unlist(pathway), byrow=TRUE,
+#                         ncol=2)), opacity=1, linkColour="orange",
+#                         nodeColour="green", fontSize=12)
 ```
 
 ### Query All Chemicals that are Part of the Selected AOP
@@ -324,4 +343,71 @@ res$CAS_ID
 ## [1] "117-81-7"   "25812-30-0" "3771-19-5"  "41859-67-0" "49562-28-9" "50892-23-4"
 ## [7] "52214-84-3" "637-07-0"
 ```
+
+
+## ChemIdConvert and CDK Depict
+
+### Service description
+
+The ChemIdConverter allows users to submit and translate a variety of chemical descriptors, such as SMILES and InChI, through a REST API, whereas CDK Depcit is a webservice that converts a SMILES into 2D depictions (SVG or PNG).
+
+### Implementation
+
+Convert selected chemical names and display their chemical structures in a dataframe. It takes CAS IDs as an input, and translates them into Smiles and InChI Keys.
+
+
+``` r
+compoundstable <- data.frame(CAS_ID=res$CAS_ID, Smiles=NA, InChiKey=NA)
+
+for(i in 1:nrow(compoundstable)) {
+  compoundstable$Smiles[i]    <- content(GET(paste0(chemidconvert,
+          "cas/to/smiles?cas=", compoundstable$CAS_ID[i])))$smiles
+  compoundstable$InChiKey[i]  <- content(GET(paste0(chemidconvert,
+          "cas/to/inchikey?cas=", compoundstable$CAS_ID[i])))$inchikey
+}
+compoundstable
+```
+
+```
+##       CAS_ID                                         Smiles
+## 1   117-81-7       CCCCC(CC)COC(=O)c1ccccc1C(=O)OCC(CC)CCCC
+## 2 25812-30-0                Cc1ccc(C)c(OCCCC(C)(C)C(O)=O)c1
+## 3  3771-19-5         CC(C)(Oc1ccc(cc1)C2CCCc3ccccc23)C(O)=O
+## 4 41859-67-0   CC(C)(Oc1ccc(CCNC(=O)c2ccc(Cl)cc2)cc1)C(O)=O
+## 5 49562-28-9 CC(C)OC(=O)C(C)(C)Oc1ccc(cc1)C(=O)c2ccc(Cl)cc2
+## 6 50892-23-4            Cc1cccc(Nc2cc(Cl)nc(SCC(O)=O)n2)c1C
+## 7 52214-84-3            CC(C)(Oc1ccc(cc1)C2CC2(Cl)Cl)C(O)=O
+## 8   637-07-0                   CCOC(=O)C(C)(C)Oc1ccc(Cl)cc1
+##                      InChiKey
+## 1 BJQHLKABXJIVAM-UHFFFAOYSA-N
+## 2 HEMJJKBWTPKOJG-UHFFFAOYSA-N
+## 3 XJGBDJOMWKAZJS-UHFFFAOYSA-N
+## 4 IIBYAHWJQTYFKB-UHFFFAOYSA-N
+## 5 YMTINGFKWWXKFG-UHFFFAOYSA-N
+## 6 SZRPDCCEHVWOJX-UHFFFAOYSA-N
+## 7 KPSRODZRAIWAKH-UHFFFAOYSA-N
+## 8 KNHUKKLJHYUCFP-UHFFFAOYSA-N
+```
+
+
+
+``` r
+# Please note that this code chunk will download compound images to your 
+# working directory. 
+for(i in 1:nrow(compoundstable)) {
+  tmp <- GET(paste0(cdkdepict, "depict/bot/png?smi=",
+                    URLencode(compoundstable$Smiles[i]), "%20",
+                    compoundstable$CAS_ID[i],
+                    "&showtitle=true&abbr=on&zoom=1.5"))
+  writePNG(content(tmp), target=paste0(compoundstable$CAS_ID[i], "_test.png"))
+}
+
+# par(mfrow=c(4, 2))
+for(i in 1:nrow(compoundstable)){
+  img <- image_read(paste0(compoundstable$CAS_ID[i], "_test.png"))
+  plot(img)
+}
+```
+
+![](117-81-7_test.png)![](25812-30-0_test.png)![](3771-19-5_test.png)![](41859-67-0_test.png)![](49562-28-9_test.png)![](50892-23-4_test.png)![](52214-84-3_test.png)![](637-07-0_test.png)
 
