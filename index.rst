@@ -27,6 +27,7 @@ to use the software, models and data generated in the project.
    :maxdepth: 2
 
    .. Tutorials/Tutorials.rst
+   tutorials/aopwiki/aopwiki.md
    tutorials/bridgedb/gene_hgnc_name_to_ensembl.md
    tutorials/cplogd/cplogd_tutorial.md
    tutorials/sombie/site_of_metabolism_prediction.md
