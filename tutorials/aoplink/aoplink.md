@@ -3,15 +3,15 @@
 
 *This workflow has originally been created in the OpenRiskNet. The original work can be seen [at this link](https://github.com/OpenRiskNet/notebooks/blob/master/AOPLink/Extracting%20and%20analysing%20data%20related%20to%20an%20AOP%20of%20interest.ipynb). Here, we present a reproduction of the workflow in the `R` language. However, please note that this is not an exact replication of the original workflow as some of the tools that are used in the original work are not available anymore, thus, removed or replaced in this reproduction. The R-Markdown file that includes the codes used in this tutorial can be found [here](https://github.com/VHP4Safety/vhp4safety-docs/blob/main/tutorials/aoplink/aoplink.r).*
 
-**Citation:** Marvin Martens, Thomas Exner, Tomaž Mohorič, Chris T Evelo, Egon L Willighagen. Workflow for extracting and analyzing data related to an AOP of interest. 2020
+_**Citation:** Marvin Martens, Thomas Exner, Tomaž Mohorič, Chris T Evelo, Egon L Willighagen. Workflow for extracting and analyzing data related to an AOP of interest. 2020_
 
 One of the main questions to solve in AOPLink is the finding of data that supports an AOP of interest. To answer that, we have developed this workflow that does that by using a variety of online services:
 
 - AOP-Wiki RDF
 - CDK Depict
 - AOP-DB RDF
-- BridgeDb (*to be added*)
-- EdelweissData explorer (*to be added*)
+- BridgeDb
+- EdelweissData explorer (*not included*)
 - WikiPathways (*to be added*)
 
 After selecting an AOP of interest, information is extracted from the AOP-Wiki RDF, CDK Depict, and AOP-DB RDF, to get a better understanding of the AOP.
@@ -34,7 +34,7 @@ library(igraph)
 Note that the SPARQL package is available on CRAN only in the archive. So, one needs to download the `.tar.gz` file from the archives (here version 1.16 is used) and install the package from the source file that can be found [here](https://cran.r-project.org/src/contrib/Archive/SPARQL/).
 
 
-```r
+``` r
 # Installing the SPARQL package from the source file. 
 install.packages("path_to_the_file", repos=NULL, type="source")
 ```
@@ -45,7 +45,7 @@ install.packages("path_to_the_file", repos=NULL, type="source")
 State the number of the AOP of interest as indicated on AOP-Wiki. Here we use AOP with the id number of [37](https://aopwiki.org/aops/37).
 
 
-```r
+``` r
 aop_id <- 37
 ```
 
@@ -57,15 +57,15 @@ Throughout the workflow, we are going to use several online services such as SPA
 ``` r
 # SPARQL endpoint URLs
 aopwikisparql       <- "https://aopwiki.cloud.vhp4safety.nl/sparql/"
-aopdbsparql         <- "http://aopdb.rdf.bigcat-bioinformatics.org/sparql/"
-wikipathwayssparql  <- "http://sparql.wikipathways.org/sparql/"
+aopdbsparql         <- "https://aopdb.rdf.bigcat-bioinformatics.org/sparql/"
+wikipathwayssparql  <- "https://sparql.wikipathways.org/sparql/"
 
 # ChemIdConvert and CDK Depict URLs
 chemidconvert <- "https://chemidconvert.cloud.douglasconnect.com/v1/"
 cdkdepict     <- "https://cdkdepict.cloud.vhp4safety.nl/"
 
 # BridgeDB base URL
-bridgedb <- "http://bridgedb.cloud.vhp4safety.nl/"
+bridgedb <- "https://bridgedb.cloud.vhp4safety.nl/"
 ```
 
 ## AOP-Wiki RDF
@@ -85,7 +85,7 @@ Second, stressor chemicals are retrieved and stored for further analysis and fet
 #### Creating the overview table
 
 
-```r
+``` r
 # Defining all variables as ontology terms present in AOP-Wiki RDF.
 title                       <- "dc:title"
 webpage                     <- "foaf:page"
@@ -114,14 +114,14 @@ for (i in 1:length(list_of_terms)) {
                   ?AOP_URI a aopo:AdverseOutcomePathway;', term, ' ?item.
                   FILTER (?AOP_URI = aop:', aop_id, ')}'
 )
-  res <- SPARQL(aopwikisparql, query)
+  res                       <- SPARQL(aopwikisparql, query)
   aop_info[i, "properties"] <- res$results$items
 }
 
 flextable(aop_info)
 ```
 
-<div class="tabwid"><style>.cl-b66e763a{}.cl-b667d7a8{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b66ae484{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-b66af9ba{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b66af9c4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b66af9ce{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.tabwid {
+<div class="tabwid"><style>.cl-beb34628{}.cl-bead4ee4{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-beaffe1e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-beb00e90{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-beb00ea4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-beb00ea5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.tabwid {
   font-size: initial;
   padding-bottom: 1em;
 }
@@ -162,12 +162,12 @@ background-color: transparent;
 }
 .katex-display {
     margin: 0 0 !important;
-}</style><table data-quarto-disable-processing='true' class='cl-b66e763a'><thead><tr style="overflow-wrap:break-word;"><th class="cl-b66af9ba"><p class="cl-b66ae484"><span class="cl-b667d7a8">term</span></p></th><th class="cl-b66af9ba"><p class="cl-b66ae484"><span class="cl-b667d7a8">properties</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">dc:title</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">PPARα activation leading to hepatocellular adenomas and carcinomas in rodents</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">foaf:page</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop/37</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">dc:creator</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">J. Christopher Corton, Cancer AOP Workgroup. National Health and Environmental Effects Research Laboratory, Office of Research and Development, Integrated Systems Toxicology Division, US Environmental Protection Agency, Research Triangle Park, NC. Corresponding author for wiki entry (corton.chris@epa.gov)</span><br></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">dcterms:abstract</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">Several therapeutic agents and industrial chemicals induce liver tumors in rats and mice through the activation of the peroxisome proliferator-activated receptor alpha (PPAR&amp;alpha;). The molecular and cellular events by which PPAR&amp;alpha; activators induce rodent hepatocarcinogenesis have been extensively studied and elucidated. The weight of evidence relevant to the hypothesized AOP for PPAR&amp;alpha; activator-induced rodent hepatocarcinogenesis is summarized here. Chemical-specific and mechanistic data support concordance of temporal and dose&amp;ndash;response relationships for the key events associated with many PPAR&amp;alpha; activators including a phthalate ester plasticizer di(2-ethylhexyl)phthalate (DEHP) and the drug gemfibrozil. The key events (KE) identified include the MIE &amp;ndash; PPAR&amp;alpha; activation measured as a characteristic change in gene expression,&amp;nbsp;&amp;nbsp;KE2&amp;nbsp;&amp;ndash; increased enzyme activation, characteristically those involved in lipid metabolism and cell cycle control, KE3&amp;nbsp;&amp;ndash; increased cell proliferation, KE4 &amp;ndash; selective clonal expansion of preneoplastic foci, and the AO &amp;ndash; &amp;nbsp;&amp;ndash; increases in hepatocellular adenomas and carcinomas. &amp;nbsp;Other biological&amp;nbsp;factors modulate the effects of PPAR&amp;alpha; activators.These modulating events include increases in oxidative stress, activation of NF-kB, and inhibition of gap junction intercellular communication. The occurrence of hepatocellular adenomas and carcinomas is specific to mice and rats. The occurrence of the various KEs in&amp;nbsp;hamsters, guinea pigs,&amp;nbsp;cynomolgous monkeys are generally absent.</span><br></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">aopo:has_key_event</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop.events/1170;https://identifiers.org/aop.events/1171;https://identifiers.org/aop.events/227;https://identifiers.org/aop.events/716;https://identifiers.org/aop.events/719</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">aopo:has_molecular_initiating_event</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop.events/227</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">aopo:has_adverse_outcome</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop.events/719</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">aopo:has_key_event_relationship</span></p></td><td class="cl-b66af9c4"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop.relationships/1229;https://identifiers.org/aop.relationships/1230;https://identifiers.org/aop.relationships/1232;https://identifiers.org/aop.relationships/1239;https://identifiers.org/aop.relationships/2252;https://identifiers.org/aop.relationships/2253;https://identifiers.org/aop.relationships/2254</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-b66af9ce"><p class="cl-b66ae484"><span class="cl-b667d7a8">ncit:C54571</span></p></td><td class="cl-b66af9ce"><p class="cl-b66ae484"><span class="cl-b667d7a8">https://identifiers.org/aop.stressor/11;https://identifiers.org/aop.stressor/175;https://identifiers.org/aop.stressor/191;https://identifiers.org/aop.stressor/205;https://identifiers.org/aop.stressor/206;https://identifiers.org/aop.stressor/207;https://identifiers.org/aop.stressor/208;https://identifiers.org/aop.stressor/210;https://identifiers.org/aop.stressor/211</span></p></td></tr></tbody></table></div>
+}</style><table data-quarto-disable-processing='true' class='cl-beb34628'><thead><tr style="overflow-wrap:break-word;"><th class="cl-beb00e90"><p class="cl-beaffe1e"><span class="cl-bead4ee4">term</span></p></th><th class="cl-beb00e90"><p class="cl-beaffe1e"><span class="cl-bead4ee4">properties</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">dc:title</span></p></td><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">PPARα activation leading to hepatocellular adenomas and carcinomas in rodents</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">foaf:page</span></p></td><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">https://identifiers.org/aop/37</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">dc:creator</span></p></td><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">J. Christopher Corton, Cancer AOP Workgroup. National Health and Environmental Effects Research Laboratory, Office of Research and Development, Integrated Systems Toxicology Division, US Environmental Protection Agency, Research Triangle Park, NC. Corresponding author for wiki entry (corton.chris@epa.gov)</span><br></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">dcterms:abstract</span></p></td><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">Several therapeutic agents and industrial chemicals induce liver tumors in rats and mice through the activation of the peroxisome proliferator-activated receptor alpha (PPAR&amp;alpha;). The molecular and cellular events by which PPAR&amp;alpha; activators induce rodent hepatocarcinogenesis have been extensively studied and elucidated. The weight of evidence relevant to the hypothesized AOP for PPAR&amp;alpha; activator-induced rodent hepatocarcinogenesis is summarized here. Chemical-specific and mechanistic data support concordance of temporal and dose&amp;ndash;response relationships for the key events associated with many PPAR&amp;alpha; activators including a phthalate ester plasticizer di(2-ethylhexyl)phthalate (DEHP) and the drug gemfibrozil. The key events (KE) identified include the MIE &amp;ndash; PPAR&amp;alpha; activation measured as a characteristic change in gene expression,&amp;nbsp;&amp;nbsp;KE2&amp;nbsp;&amp;ndash; increased enzyme activation, characteristically those involved in lipid metabolism and cell cycle control, KE3&amp;nbsp;&amp;ndash; increased cell proliferation, KE4 &amp;ndash; selective clonal expansion of preneoplastic foci, and the AO &amp;ndash; &amp;nbsp;&amp;ndash; increases in hepatocellular adenomas and carcinomas. &amp;nbsp;Other biological&amp;nbsp;factors modulate the effects of PPAR&amp;alpha; activators.These modulating events include increases in oxidative stress, activation of NF-kB, and inhibition of gap junction intercellular communication. The occurrence of hepatocellular adenomas and carcinomas is specific to mice and rats. The occurrence of the various KEs in&amp;nbsp;hamsters, guinea pigs,&amp;nbsp;cynomolgous monkeys are generally absent.</span><br></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">aopo:has_key_event</span></p></td><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">https://identifiers.org/aop.events/1170;https://identifiers.org/aop.events/1171;https://identifiers.org/aop.events/227;https://identifiers.org/aop.events/716;https://identifiers.org/aop.events/719</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">aopo:has_molecular_initiating_event</span></p></td><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">https://identifiers.org/aop.events/227</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">aopo:has_adverse_outcome</span></p></td><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">https://identifiers.org/aop.events/719</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">aopo:has_key_event_relationship</span></p></td><td class="cl-beb00ea4"><p class="cl-beaffe1e"><span class="cl-bead4ee4">https://identifiers.org/aop.relationships/1229;https://identifiers.org/aop.relationships/1230;https://identifiers.org/aop.relationships/1232;https://identifiers.org/aop.relationships/1239;https://identifiers.org/aop.relationships/2252;https://identifiers.org/aop.relationships/2253;https://identifiers.org/aop.relationships/2254</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-beb00ea5"><p class="cl-beaffe1e"><span class="cl-bead4ee4">ncit:C54571</span></p></td><td class="cl-beb00ea5"><p class="cl-beaffe1e"><span class="cl-bead4ee4">https://identifiers.org/aop.stressor/11;https://identifiers.org/aop.stressor/175;https://identifiers.org/aop.stressor/191;https://identifiers.org/aop.stressor/205;https://identifiers.org/aop.stressor/206;https://identifiers.org/aop.stressor/207;https://identifiers.org/aop.stressor/208;https://identifiers.org/aop.stressor/210;https://identifiers.org/aop.stressor/211</span></p></td></tr></tbody></table></div>
 
 ### Generating AOP Network
 
 
-```r
+``` r
 key_events <- aop_info[aop_info$term == "aopo:has_key_event", "properties"]
 key_events <- unlist(strsplit(key_events, ";"))
 
@@ -257,7 +257,7 @@ ke_title
 ## 62    KE 787         Increase, Regenerative cell proliferation (hepatocytes)
 ```
 
-```r
+``` r
 # Listing all intermediate KEs that are not MIEs or AOs. 
 kes_intermediate <- kes[!(kes %in% mies) & !(kes %in% aos)]
 ```
@@ -287,6 +287,7 @@ pathway_color[names(V(pathway_plot)) %in% mies]              <- "green"
 pathway_color[names(V(pathway_plot)) %in% kes_intermediate]  <- "yellow"
 pathway_color[names(V(pathway_plot)) %in% aos]               <- "red"
 V(pathway_plot)$color <- pathway_color
+
 par(mar = c(0, 0, 0, 0))
 plot(pathway_plot)
 ```
@@ -304,7 +305,7 @@ plot(pathway_plot)
 ### Query All Chemicals that are Part of the Selected AOP
 
 
-```r
+``` r
 query <- paste0('PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
                 SELECT ?CAS_ID (fn:substring(?CompTox,33) as ?CompTox_ID) ?Chemical_name
                 WHERE{
@@ -334,7 +335,7 @@ res
 ## 8                 Clofibrate   637-07-0 DTXSID3020336
 ```
 
-```r
+``` r
 # CAS-IDs of the compounds
 res$CAS_ID
 ```
@@ -410,4 +411,128 @@ for(i in 1:nrow(compoundstable)){
 ```
 
 ![](117-81-7_test.png)![](25812-30-0_test.png)![](3771-19-5_test.png)![](41859-67-0_test.png)![](49562-28-9_test.png)![](50892-23-4_test.png)![](52214-84-3_test.png)![](637-07-0_test.png)
+
+
+
+## AOP-DB RDF
+
+The EPA AOP-DB supports the discovery and development of putative and potential AOPs. Based on public annotations, it integrates AOPs with gene targets, chemicals, diseases, tissues, pathways, species orthology information, ontologies, and gene interactions. The AOP-DB facilitates the translation of AOP biological context, and associates assay, chemical and disease endpoints with AOPs ([Pittman et al., 2018](https://doi.org/10.1016/j.taap.2018.02.006); [Mortensen et al., 2018](https://doi.org/10.1007/s00335-018-9738-7)). The AOP-DB won the first OpenRiskNet implementation challenge of the associated partner program and is therefore integrated into the OpenRiskNet e-infrastructure. After the conversion of the AOP-DB into an RDF schema, its data will be exposed in a Virtuoso SPARQL endpoint.
+
+#### Implementation
+
+Extracting all genes related to AOP of interest. 
+
+
+``` r
+# Creating a list to store the results.
+genes_entrez <- list()
+
+# Making SPARQL queries for all key events. 
+for(i in 1:length(key_events)) {
+  key_event <- key_events[i]
+
+  # Getting only the key event's id.
+  key_event <- strsplit(key_event, "/")[[1]][5]
+  
+  query <- paste0('PREFIX aop.events: <http://identifiers.org/aop.events/>
+    SELECT DISTINCT ?KE_URI ?Entrez_ID
+    WHERE{
+      ?KE_URI edam:data_1027 ?Entrez_URI.
+      ?Entrez_URI edam:data_1027 ?Entrez_ID.
+      FILTER (?KE_URI = aop.events:', key_event,')}
+  ')
+  
+  res                     <- SPARQL(aopdbsparql, query)
+  genes_entrez[[i]]       <- res$results
+  names(genes_entrez)[i]  <- key_event
+}
+
+# Converting the results into a data frame. 
+for(i in 1:length(genes_entrez)) {
+  if(nrow(genes_entrez[[i]]) > 0) {
+    genes_entrez[[i]][, 1] <- names(genes_entrez)[i]
+  }
+}
+genes_entrez            <- matrix(unlist(genes_entrez), ncol=2, byrow=FALSE)
+colnames(genes_entrez)  <- c("KE", "Entrez")  
+genes_entrez            <- as.data.frame(genes_entrez)
+genes_entrez
+```
+
+```
+##    KE Entrez
+## 1 227   5465
+## 2 227 403654
+## 3 227  19013
+## 4 227  25747
+```
+
+``` r
+genes <- genes_entrez$Entrez
+genes
+```
+
+```
+## [1] "5465"   "403654" "19013"  "25747"
+```
+
+
+### BridgeDb to Map Identifiers
+
+#### Service Description
+BridgeDb to map identifiers
+Service description
+In order to link databases and services that use particular identifiers for genes, proteins, and chemicals, the BridgeDb platform is integrated into the OpenRiskNet e-infrastructure. It allows for identifier mapping between various biological databases for data integration and interoperability ([van Iersel et al., 2010](https://doi.org/10.1186/1471-2105-11-5)).
+
+#### Implementation
+
+The genes from AOP-DB are mapped to identifiers from other databases using BridgeDb. Variable values are filled for `input_data_source` and `output_data_source` identifiers based on BridgeDb's [documentation on system codes](https://www.bridgedb.org/pages/system-codes.html). Also, the species is specified as a value in the variable `species`.
+
+
+``` r
+input_data_source   <- "L"
+output_data_source  <- c("H", "En")
+species             <- c("Human", "Dog", "Mouse", "Rat")
+
+mappings  <- data.frame()
+
+for(i in 1:length(output_data_source)) {
+  source <- output_data_source[i]
+  for(entrez in genes) {
+    for(spec in species) {
+      query_url <- paste0(bridgedb, spec, "/xrefs/", input_data_source, "/", 
+                          entrez, "?dataSource=", source)
+      res <- GET(query_url)
+      dat <- content(res, as="text")
+      
+      if(dat != "{}") {
+        dat <- as.data.frame(strsplit(dat, ",")[[1]])
+        dat <- unlist(apply(dat, 1, strsplit, '":"'))
+        dat <- matrix(dat, ncol=2, byrow=TRUE)
+        dat <- gsub("\\{", "", dat)
+        dat <- gsub("}", "", dat)
+        dat <- gsub('\\"', "", dat)
+        
+        dat           <- as.data.frame(dat)
+        dat           <- cbind(entrez, dat)
+        colnames(dat) <- c("entrez", "identifier", "database")
+        
+        mappings <- rbind(mappings, dat)
+      }
+    }
+  }
+}
+mappings$identifier <- unlist(lapply(strsplit(mappings$identifier, ":"), 
+                                     function(x) {x[2]}))
+mappings
+```
+
+```
+##   entrez         identifier database
+## 1   5465              PPARA     HGNC
+## 2   5465    ENSG00000186951  Ensembl
+## 3 403654 ENSCAFG00845010405  Ensembl
+## 4  19013 ENSMUSG00000022383  Ensembl
+## 5  25747 ENSRNOG00000021463  Ensembl
+```
 

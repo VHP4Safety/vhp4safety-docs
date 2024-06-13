@@ -42,15 +42,15 @@ aop_id <- 37
 
 # SPARQL endpoint URLs.
 aopwikisparql       <- "https://aopwiki.cloud.vhp4safety.nl/sparql/"
-aopdbsparql         <- "http://aopdb.rdf.bigcat-bioinformatics.org/sparql/"
-wikipathwayssparql  <- "http://sparql.wikipathways.org/sparql/"
+aopdbsparql         <- "https://aopdb.rdf.bigcat-bioinformatics.org/sparql/"
+wikipathwayssparql  <- "https://sparql.wikipathways.org/sparql/"
 
 # ChemIdConvert and CDK Depict URLs.
 chemidconvert <- "https://chemidconvert.cloud.douglasconnect.com/v1/"
 cdkdepict     <- "https://cdkdepict.cloud.vhp4safety.nl/"
 
 # BridgeDB base URL.
-bridgedb <- "http://bridgedb.cloud.vhp4safety.nl/"
+bridgedb <- "https://bridgedb.cloud.vhp4safety.nl/"
 
 # EdelweissData API URL.
 edelweiss_api_url <- "https://api.staging.kit.cloud.douglasconnect.com"
@@ -222,3 +222,83 @@ for(i in 1:nrow(compoundstable)){
   plot(img)
 }
 
+
+### AOP-DB RDF
+
+# Extracting all genes related to AOP of interest 
+key_events
+
+# Creating a list to store the results.
+genes_entrez <- list()
+
+# Making SPARQL queries for all key events. 
+for(i in 1:length(key_events)) {
+  key_event <- key_events[i]
+  # Getting only the key event's id.
+  key_event <- strsplit(key_event, "/")[[1]][5]
+  
+  query <- paste0('PREFIX aop.events: <http://identifiers.org/aop.events/>
+    SELECT DISTINCT ?KE_URI ?Entrez_ID
+    WHERE{
+      ?KE_URI edam:data_1027 ?Entrez_URI.
+      ?Entrez_URI edam:data_1027 ?Entrez_ID.
+      FILTER (?KE_URI = aop.events:', key_event,')}
+  ')
+  
+  res                     <- SPARQL(aopdbsparql, query)
+  genes_entrez[[i]]       <- res$results
+  names(genes_entrez)[i]  <- key_event
+}
+
+# Converting the results into a data frame. 
+for(i in 1:length(genes_entrez)) {
+  if(nrow(genes_entrez[[i]]) > 0) {
+    genes_entrez[[i]][, 1] <- names(genes_entrez)[i]
+  }
+}
+genes_entrez            <- matrix(unlist(genes_entrez), ncol=2, byrow=FALSE)
+colnames(genes_entrez)  <- c("KE", "Entrez")  
+genes_entrez            <- as.data.frame(genes_entrez)
+genes_entrez
+
+genes <- genes_entrez$Entrez
+genes
+
+
+## BridgeDb to Map Identifiers
+
+input_data_source   <- "L"
+output_data_source  <- c("H", "En")
+species             <- c("Human", "Dog", "Mouse", "Rat")
+
+mappings  <- data.frame()
+
+for(i in 1:length(output_data_source)) {
+  source <- output_data_source[i]
+  for(entrez in genes) {
+    for(spec in species) {
+      query_url <- paste0(bridgedb, spec, "/xrefs/", input_data_source, "/", 
+                          entrez, "?dataSource=", source)
+      res <- GET(query_url)
+      dat <- content(res, as="text")
+      
+      if(dat != "{}") {
+        dat <- as.data.frame(strsplit(dat, ",")[[1]])
+        dat <- unlist(apply(dat, 1, strsplit, '":"'))
+        dat <- matrix(dat, ncol=2, byrow=TRUE)
+        dat <- gsub("\\{", "", dat)
+        dat <- gsub("}", "", dat)
+        dat <- gsub('\\"', "", dat)
+        
+        dat           <- as.data.frame(dat)
+        dat           <- cbind(entrez, dat)
+        colnames(dat) <- c("entrez", "identifier", "database")
+        
+        mappings <- rbind(mappings, dat)
+      }
+    }
+  }
+}
+mappings$identifier <- unlist(lapply(strsplit(mappings$identifier, ":"), 
+                                     function(x) {x[2]}))
+mappings
