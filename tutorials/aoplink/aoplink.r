@@ -25,6 +25,9 @@ library(magick)
 library(flextable)
 library(igraph)
 library(networkD3)
+library(tidyverse)
+library(RColorBrewer)
+library(ggrepel)
 ################################################################################
 
 
@@ -302,3 +305,85 @@ for(i in 1:length(output_data_source)) {
 mappings$identifier <- unlist(lapply(strsplit(mappings$identifier, ":"), 
                                      function(x) {x[2]}))
 mappings
+
+
+### Importing Data
+
+# Since the EdelweissData Explorer is not available anymore, we read the data 
+# set from a local file. 
+csp_dat <- read.csv("data/CSP_48hr_50uM.csv")
+head(csp_dat)
+
+# Adding a column to the data set to indicate their regulation in gene 
+# expression based on log2fc.
+csp_dat$diffexpressed <- "NO"
+# Finding the up-regulated genes
+csp_dat$diffexpressed[csp_dat$log2FoldChange > 0.6 & csp_dat$pvalue < 0.05]   <- "UP"
+# Finding the down-regulated genes
+csp_dat$diffexpressed[csp_dat$log2FoldChange < -0.6 & csp_dat$pvalue < 0.05]  <- "DOWN"
+
+# Some exploration: Ordering the down-regulated genes in terms of their significance
+csp_dat_down <- subset(csp_dat, diffexpressed=="DOWN")
+head(csp_dat_down[order(csp_dat_down$padj), ])
+
+# Creating the "delabel" column to contain the name of the top 30 differentially 
+# expressed genes (NA in case they are not). 
+csp_dat$delabel <- ifelse(csp_dat$GeneSymbol_new %in% head(csp_dat[order(csp_dat$padj), 
+                          "GeneSymbol_new"], 30), csp_dat$GeneSymbol_new, NA)
+
+# Getting the list of differentially expressed genes. 
+deg <- csp_dat$Entrez_ID_new[csp_dat$diffexpressed %in% c("UP", "DOWN")]
+
+# The number of differentially expressed genes.
+length(deg)
+
+# Entrez IDs of the (first five) differentially expressed genes.
+deg[1:5]
+
+# Creating the volcano plot of the differentially expressed genes.
+ggplot(data = csp_dat, aes(x = log2FoldChange, y = -log10(pvalue), 
+                           col = diffexpressed, label = delabel)) +
+  geom_vline(xintercept = c(-0.6, 0.6), col = "gray", linetype = 'dashed') +
+  geom_hline(yintercept = -log10(0.05), col = "gray", linetype = 'dashed') + 
+  geom_point(size = 2) + 
+  scale_color_manual(values = c("#00AFBB", "grey", "#bb0c00"), 
+                     labels = c("Downregulated", "Not significant", "Upregulated")) + 
+  coord_cartesian(ylim = c(0, 200), xlim = c(-10, 10)) + 
+  labs(color = 'Severe', 
+       x = expression("log"[2]*"FC"), y = expression("-log"[10]*"p-value")) + 
+  scale_x_continuous(breaks = seq(-10, 10, 2)) + 
+  ggtitle('Volcano Plot') +  
+  geom_text_repel(max.overlaps = Inf)  
+
+
+### WikiPathways RDF
+
+# Entrez IDs of the genes received from AOP-DB.
+genes
+
+# Creating an empty data frame to store the results.
+WPwithGenes <- data.frame(Pathway_ID = character(), Pathway_title = character(),
+                          organism = character(), Gene_ID = character(),
+                          stringsAsFactors = FALSE)
+
+# Looping through the list of genes from AOPDB and querying data.
+for (i in 1:length(genes)) {
+  query <- paste0('SELECT DISTINCT (str(?wpid) as ?Pathway_ID) (str(?PW_Title) as ?Pathway_title) ?organism
+    WHERE {
+      ?gene a wp:GeneProduct; dcterms:identifier ?id; dcterms:isPartOf ?pathwayRes; wp:bdbEntrezGene <https://identifiers.org/ncbigene/', genes[i], '>.
+      ?pathwayRes a wp:Pathway; dcterms:identifier ?wpid; dc:title ?PW_Title; wp:organismName ?organism.}'
+  )
+  
+  res <- SPARQL(wikipathwayssparql, query)
+  res <- res$results
+  
+  # Adding the Gene_ID column to results. 
+  res$Gene_ID <- genes[i]
+  
+  # Adding the results to the data frame.
+  WPwithGenes <- rbind(WPwithGenes, res)
+}
+
+# Printing the results.
+flextable
+# flextable(WPwithGenes, cwidth=c(1, 6, 2, 1))
