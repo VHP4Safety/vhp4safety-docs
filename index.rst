@@ -55,6 +55,12 @@ to use the software, models and data generated in the project.
    service/wikibase.md
 
 .. toctree::
+   :caption: Glossary
+   :maxdepth: 2
+
+   glossary/index.md
+
+.. toctree::
    :caption: Sustainability
    :maxdepth: 2
 
