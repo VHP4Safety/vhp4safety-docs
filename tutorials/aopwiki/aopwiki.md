@@ -7,7 +7,7 @@ The AOP-Wiki service on the VHP4Safety platform consists of the AOP-Wiki SPARQL 
 *accessible through [URL here]*
 The AOP-Wiki SNORQL UI (*Fig. 1*) has a handful of user-directed functionalities. Besides the central panel for SPARQL queries with syntax highlighting, the SNORQL UI provides an example query panel that is dynamically configured based on a GitHub repository (_e.g._ [github.com/marvinm2/AOPWikiSNORQL](https://github.com/marvinm2/AOPWikiSNORQL)). This allows for pre-loading of SPARQL queries based on particular use cases, and topics, and organizes these queries in a folder structure. The interface also has an input field for the SPARQL endpoint that should be queried by the SNORQL UI, in case the user wants to execute SPARQL queries on a different SPARQL endpoint (instance). Finally, a handful of functionalities are included below the SPARQL query panel: various options to export results, a full-screen mode for writing SPARQL queries, and a permalink creator for convenient sharing of SPARQL queries.
 
-![AOP-Wiki SNORQL](AOP-Wiki%20SNORQL%20interface.png)
+![AOP-Wiki SNORQL](AOP-Wiki_SNORQL_interface.png)
 
 _Figure 1: AOP-Wiki SNORQL interface. 1: the SPARQL query frame. 2: the SPARQL endpoint field. 3: the example query panel._
 
@@ -26,6 +26,6 @@ _Figure 3: AOP-Wiki SPARQL endpoint, with a SPARQL query panel and options to ex
 ## AOP-Wiki RDF schema
 The AOP-Wiki SPARQL endpoint has the AOP-Wiki RDF loaded and ready to query. To be able to construct advanced SPARQL queries, it is useful to understand the RDF schema, which has been published in [this paper](https://doi.org/10.1089/aivt.2021.0010). 
 
-![Simplified AOP-Wiki RDF schema](AOP-Wiki%20RDF%20simple.png)
+![Simplified AOP-Wiki RDF schema](AOP-Wiki_RDF_simple.png)
 
 _Figure 4: Simplified depiction of the AOP-Wiki RDF schema._
