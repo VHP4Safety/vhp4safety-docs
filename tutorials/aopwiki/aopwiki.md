@@ -19,7 +19,7 @@ _Figure 2: AOP-Wiki SPARQL query panel. Illustration of the structure in a GitHu
 *accessible through [URL here]*
 For automated access through R, Python, bash, and other coding environments, one can utilize the SPARQL endpoint, as the main access point to execute SPARQL queries against the AOP-Wiki RDF. This is also the service that is used by the SNORQL UI for the execution of SPARQL queries.
 
-![AOP-Wiki SPARQL endpoint](AOP-Wiki%20SPARQL%20endpoint.png)
+![AOP-Wiki SPARQL endpoint](AOP-Wiki_SPARQL_endpoint.png)
 
 _Figure 3: AOP-Wiki SPARQL endpoint, with a SPARQL query panel and options to export results._
 
