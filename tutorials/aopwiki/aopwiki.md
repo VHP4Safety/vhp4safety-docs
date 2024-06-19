@@ -11,8 +11,9 @@ The AOP-Wiki SNORQL UI (*Fig. 1*) has a handful of user-directed functionalities
 
 _Figure 1: AOP-Wiki SNORQL interface. 1: the SPARQL query frame. 2: the SPARQL endpoint field. 3: the example query panel._
 
+![AOP-Wiki example query GitHub](AOP-Wiki_example_repo.png)
 
-_Figure 2: AOP-Wiki SPARQL query panel. Illustration of the structure in a GitHub repository to dynamically load SPARQL queries in the example panel._
+_Figure 2: AOP-Wiki SPARQL query panel GitHub repository. Illustration of the structure in a GitHub repository to dynamically load SPARQL queries in the example panel._
 
 ---
 ## AOP-Wiki SPARQL endpoint for automated access
