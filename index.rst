@@ -18,6 +18,7 @@ to use the software, models and data generated in the project.
    .. introduction/intro.rst
    introduction/mission_and_vision.md
    introduction/research_lines.md
+   introduction/case_studies_and_regulatory_questions.md
    introduction/partners_and_consortium.md
    introduction/contact.md
    .. topics/topics.rst
@@ -59,6 +60,7 @@ to use the software, models and data generated in the project.
    :maxdepth: 2
 
    glossary/index.md
+   glossary/index_md.md
 
 .. toctree::
    :caption: Sustainability
