@@ -29,7 +29,6 @@ The AOP-Wiki SPARQL endpoint can be accessed from various coding environments us
 
 ### Python Sample Code
 ```python
-Code kopiëren
 # Install the required library
 # pip install SPARQLWrapper
 
@@ -60,9 +59,9 @@ for result in results["results"]["bindings"]:
 
 ### R Sample Code
 ```r
-Code kopiëren
-# Install the required package
-# install.packages("SPARQL")
+# Download and install the SPARQL package from GitHub
+install.packages("devtools")
+devtools::install_url("https://github.com/cran/SPARQL/archive/refs/tags/1.16.tar.gz")
 
 library(SPARQL)
 
