@@ -1,4 +1,6 @@
 # AOP-Wiki Service Tutorial
+---
+**Author:** Marvin Martens
 
 The AOP-Wiki service on the VHP4Safety platform consists of the AOP-Wiki SPARQL endpoint and the AOP-Wiki SNORQL User Interface (UI). The data is loaded in Resource Description Framework (RDF) format, enabling the use of SPARQL queries to extract the data in a flexible and reproducible manner. The service can be accessed either directly through a web browser or programmatically from coding environments. This tutorial will introduce both user interaction through the web UI and automated access via coding environments such as R or Python. Additionally, an overview of the AOP-Wiki RDF framework will be provided.
 
@@ -83,7 +85,7 @@ print(results)
 ```
 
 ## AOP-Wiki RDF Schema
-The AOP-Wiki SPARQL endpoint has the AOP-Wiki RDF data loaded and ready for querying. To construct advanced SPARQL queries, it is beneficial to understand the RDF schema, which has been detailed in this paper.
+The AOP-Wiki SPARQL endpoint has the AOP-Wiki RDF data loaded and ready for querying. To construct advanced SPARQL queries, it is beneficial to understand the RDF schema, which has been detailed in [this paper](https://doi.org/10.1089/aivt.2021.0010).
 
 ![Simplified AOP-Wiki RDF schema](AOP-Wiki_RDF_simple.png)
 
