@@ -90,3 +90,8 @@ The AOP-Wiki SPARQL endpoint has the AOP-Wiki RDF data loaded and ready for quer
 ![Simplified AOP-Wiki RDF schema](AOP-Wiki_RDF_simple.png)
 
 _Figure 4: Simplified depiction of the AOP-Wiki RDF schema._
+
+
+## Conclusion
+
+This tutorial has provided an overview of the AOP-Wiki service available on the VHP4Safety platform, including both the SNORQL UI for direct user access and the SPARQL endpoint for automated data retrieval. By using these tools, users can efficiently query the AOP-Wiki database using SPARQL, whether through a web interface or programmatically via environments like R or Python. The flexibility offered by the RDF framework and SPARQL queries allows users to extract and analyze AOP data in a highly customizable and reproducible manner, enhancing research and data exploration within the field of toxicology and risk assessment. For more complex queries, understanding the AOP-Wiki RDF schema will further empower users to tailor their data retrieval to specific research needs. For any suggestions, requests, bugs, or questions, feel free to file an issue at [github.com/marvinm2/aopwiki-snorql-extended/issues](https://github.com/marvinm2/aopwiki-snorql-extended/issues).
