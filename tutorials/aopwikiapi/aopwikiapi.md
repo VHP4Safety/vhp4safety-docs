@@ -7,7 +7,7 @@ The AOP-Wiki (RESTful) API provides a programmatic way to access data from in AO
 This tutorial covers how to interact with the AOP-Wiki API using the Swagger interface, CURL commands, and programming languages like Python and R. By the end of this guide, you should be able to retrieve specific data from AOP-Wiki, such as information about key events, molecular initiating events, or entire AOPs.
 
 ## The Swagger Interface
-*Accessible through [aopwiki-api.cloud.vhp4safety.nl](aopwiki-api.cloud.vhp4safety.nl)*
+*Accessible through [aopwiki-api.cloud.vhp4safety.nl/api/marvinm2/AOPWikiQueries](aopwiki-api.cloud.vhp4safety.nl/api/marvinm2/AOPWikiQueries)*
 
 The AOP-Wiki API comes with a Swagger interface that allows the exploration and testing of API endpoints in the web browser. This is a great starting point for understanding the available API methods and parameters. By clicking a method and pressing the **"Try it out"** button, one can execute requests, see the responses, and download if necessary.
 
@@ -17,7 +17,7 @@ When executing the request, multiple responses will appear, including the corres
 
 ![AOP-Wiki Swagger interface output](AOP-Wiki_API_Response.png)
 
-## Making external API Calls
+## External access to API
 
 The AOP-Wiki API also allows CURL commands and HTTP requests to retrieve AOP-Wiki data. CURL is a command-line tool that allows you to transfer data using various protocols, including HTTP, and request commands can be executed from coding environments such as Python and R. Below are examples for the most basic API call to retrieve all AOPs with their title and ID using CURL, Python and R.
 
