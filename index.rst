@@ -47,6 +47,7 @@ to use the software, models and data generated in the project.
 
    .. service/catalog.rst
    service/aopwiki.md
+   service/aopwikiapi.md
    service/bridgedb.md
    service/cdkdepict.md
    service/cplogd.md
