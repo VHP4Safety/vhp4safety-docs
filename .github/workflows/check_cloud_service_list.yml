@@ -1,0 +1,50 @@
+name: Checking for new services on the Cloud repo
+
+# Check the Cloud repo for new commits every Sunday at 17:00. 
+on:
+  schedule:
+    - cron: '0 17 * * 0'
+
+jobs:
+  update_service_list:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo1
+        uses: actions/checkout@v4  # Using the checkout at https://github.com/actions/checkout
+
+      - name: Clone the cloud repo and get the service files
+        run: |
+          # Clone the cloud repo in a temporary directory
+          git clone https://github.com/VHP4Safety/cloud.git temp_service
+          
+          # Copy all Markdown files to the service directory in docs repo
+          cp temp_service/docs/service/*.md service/
+
+          # Remove the template.md
+          rm service/template.md
+
+      - name: Update index.rst
+        run: |
+          # Create a sorted list of Markdown files
+          md_files=$(ls service/*.md | sort)
+          insert_content=""
+          for file in $md_files; do
+            insert_content+="   service/$(basename "$file")\n"
+          done
+
+          # Replace the content between ".. list_start" and ".. list_end"
+          awk -v content="$insert_content" '
+          BEGIN { in_list = 0 }
+          /.. list_start/ { print; in_list = 1; next }
+          in_list && /.. list_end/ { print content; print; in_list = 0; next }
+          { if (!in_list) print }
+          ' index.rst > index.tmp && mv index.tmp index.rst
+
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add service/*.md index.rst
+          git commit -m "Syncing service markdown files from the cloud repo and update index.rst"
+          git push
