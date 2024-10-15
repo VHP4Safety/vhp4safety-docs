@@ -46,6 +46,7 @@ to use the software, models and data generated in the project.
    :titlesonly:
 
    .. service/catalog.rst
+   .. list_start
    service/aopwiki.md
    service/aopwikiapi.md
    service/bridgedb.md
@@ -56,6 +57,7 @@ to use the software, models and data generated in the project.
    service/sysrev.md
    service/txg_mapr.md
    service/wikibase.md
+   .. list_end
 
 .. toctree::
    :caption: Glossary
