@@ -24,8 +24,9 @@ The app’s initial interface allows users to select a model and specify the dos
 Once the model, dose, and time point are selected, the user can initiate the simulation by clicking the *Run Simulation* button. This triggers the execution of the ODE system corresponding to the selected model and generates time-course predictions for each KE in the qAOP. The output reflects the system’s response to the specified dose, with the simulation time frame extending up to the user-defined time point (Figure 2). For the in vitro model, the plotted KEs include *DNA Damage* and *Necrosis*, while the in vivo model additionally includes *Inflammation* and *Fibrosis*. Alongside the time-course plots, the app also provides a snapshot of the KE and AO levels at the selected time point, displayed as a distribution across all elements of the AOP (Figure 3).
 
 <img src='https://raw.githubusercontent.com/VHP4Safety/vhp4safety-docs/main/tutorials/qaop_app/qaop_app_fig2.png' alt="drawing" width='500' height='300'>
+
 *Figure 2: Time-Course Simulation of DNA Damage in the In Vivo Model. Default values for Dose and Time are used.*
 
 <img src='https://raw.githubusercontent.com/VHP4Safety/vhp4safety-docs/main/tutorials/qaop_app/qaop_app_fig3.png' alt="drawing" width='500' height='300'>
-*Figure 3: Distribution of Inflammation Levels at 672h.*
 
+*Figure 3: Distribution of Inflammation Levels at 672h.*
