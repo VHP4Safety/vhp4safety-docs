@@ -32,6 +32,7 @@ to use the software, models and data generated in the project.
    tutorials/aopwikiapi/aopwikiapi.md
    tutorials/bridgedb/gene_hgnc_name_to_ensembl.md
    tutorials/cplogd/cplogd_tutorial.md
+   tutorials/molaopanalyser/molaopanalyser.md
    tutorials/qaop_app/qaop_tutorial.md
    tutorials/sombie/site_of_metabolism_prediction.md
 
