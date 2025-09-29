@@ -15,5 +15,5 @@ In the VHP4Safety project, three case studies and two regulatory questions attri
 - b. Can we identify groups at extra risk of developing Parkinson's Disease after exposure to compound Y?
 
 3. Thyroid Mediated Developmental Neurotoxicity: Age and sex scenario to study health effects discriminated by age and sex on thyroid mediated neurodevelopment. 
-- a. What information about a compound do we need to advise women in their early pregnancy to decide whether the compound can be used?
-- b. Does compound Z influence the thyroid-mediated brain development in the fetus resulting in cognitive impairment in children? 
+- a. What information about a compound (e.g., silychristin) do we need to advise women in their early pregnancy to decide whether the compound can be used?
+- b. Does compound Z (e.g., silychristin) influence the thyroid-mediated brain development in the fetus resulting in cognitive impairment in children? 
