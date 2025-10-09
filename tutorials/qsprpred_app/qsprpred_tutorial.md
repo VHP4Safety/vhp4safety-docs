@@ -2,7 +2,7 @@
 
 **Linde Schoenmaker**
 
-The QSPRpred app offers users a tool to predict the activity of their chemicals of interest for various molecular initiation events (MIEs) from the VHP4Safety case studies. This prediction is done by target-specific, pretrained QSAR models. These models were trained on curated datasets from the Papyrus database.
+The QSPRpred app offers users a tool to predict the activity of their chemicals of interest for various molecular initiation events (MIEs) from the VHP4Safety case studies. This prediction is done by target-specific, pretrained QSAR models. QSAR models are machine learning models trained to predict properties of chemicals. These models were trained on curated datasets from the Papyrus database.
 
 Depending on the model the readout is either a numeric value or an activity class (active/inactive). In both cases the endpoint is based on the pChEMBL value. This is a negative logarithmic measure for activity and translates to a concentration of 10^-pchembl for a half maximal response. For example, an IC50 measurement of 1nM would have a pChEMBL value of 9. More information about each model can be found in the QMRF document.
 
