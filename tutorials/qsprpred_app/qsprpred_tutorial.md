@@ -11,9 +11,9 @@ Depending on the model the readout is either a numeric value or an activity clas
 
 The app's initial interface allows users to select a model and specify the chemical(s) of interest (Figure 1). Key model characteristics are shown in each model box. A full description accompanies each model, in the form of a QMRF (a data format intended for summarising and reporting key information on (Q)SAR models) detailing general information, endpoint, algorithm, domain of applicability, goodness-of-fit, predictivity, interpretation and miscellaneous information. Molecules can be either inputted as comma separated SMILES string or using a csv file with a column "SMILES".
 
-<img src='interface_models.png' alt="drawing" width='500' height='500'>
+![Interface Models](interface_models.png)
 
-*Figure 1: User Interface of the QSPRpred App. The user can select between TRbeta (selected) and TRalpha models and input the desired chemical(s) as SMILES strings.*
+_Figure 1: User Interface of the QSPRpred App. The user can select between TRbeta (selected) and TRalpha models and input the desired chemical(s) as SMILES strings._
 
 ## Predict MIE
 
