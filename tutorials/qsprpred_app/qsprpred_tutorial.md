@@ -14,7 +14,26 @@ Depending on the model the readout is either a numeric value or an activity clas
 
 ## Model Selection and Inputs
 
-The app's initial interface allows users to select a model and specify the chemical(s) of interest (Figure 1). Key model characteristics are shown in each model box. A full description accompanies each model, in the form of a QMRF (a data format intended for summarising and reporting key information on (Q)SAR models) detailing general information, endpoint, algorithm, domain of applicability, goodness-of-fit, predictivity, interpretation and miscellaneous information. Molecules can be either inputted as comma separated SMILES string or using a csv file with a column "SMILES" <a href="https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html" target="_blank">(more information SMILES)</a>.
+- The app’s initial interface allows users to:
+  - select a model  
+  - specify the chemical(s) of interest (Figure 1)
+
+- Each model box displays key model characteristics.
+
+- A full model description is provided as a QMRF, including:
+  - general information  
+  - endpoint  
+  - algorithm  
+  - domain of applicability  
+  - goodness-of-fit  
+  - predictivity  
+  - interpretation  
+  - miscellaneous information
+
+- Molecules can be input in two ways:
+  - as comma-separated SMILES strings  
+  - via a CSV file containing a **“SMILES”** column
+  - <a href="https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html" target="_blank">(more information SMILES)</a>
 
 <img src='interface_models.png' alt="drawing" width='500' height='500'>
 
@@ -22,7 +41,27 @@ The app's initial interface allows users to select a model and specify the chemi
 
 ## Predict MIE
 
-Once the model is selected, the user can initiate the prediction by clicking the *Run Prediction* button. This triggers the execution of the selected QSAR model(s) and generates activity predictions. In addition to the prediction value an indication of the domain of applicability is also always shown. For more information the user can navigate to the "Comprehensive output" tab. Here information on the nearest neighbor from the training set is given; its structure, similarity to the input molecule, measured value and source(s). Furthermore, each prediction is accompanied by a QPRF document (a data format intended for summarising and reporting key information on QSAR model predictions). This document gives information about the input substance, model used, prediction, input, applicability domain and reliability. All information available to the model will be pre-filled out. This document is intended to aid the user but will not be completely filled out.
+- After selecting a model, the user can start the prediction by clicking **Run Prediction**.
+  - This executes the chosen QSAR model(s) and produces activity predictions.
+  - Along with the prediction value, an indication of the **domain of applicability** is always shown.
+
+- Additional details are available under the **Comprehensive output** tab, including:
+  - information on the nearest neighbor from the training set  
+  - its structure  
+  - similarity to the input molecule  
+  - measured value  
+  - source(s)
+
+- Each prediction is also accompanied by a **QPRF document**, which includes:
+  - information about the input substance  
+  - the model used  
+  - the prediction  
+  - the input  
+  - applicability domain  
+  - reliability  
+  - (all model-available information is pre-filled, though the document is not fully completed)
+
+- The QPRF is intended to support the user by summarizing and documenting key information about QSAR predictions.
 
 ## References
 
