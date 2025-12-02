@@ -1,4 +1,6 @@
-## General Tips for Documentation Creation:
+## Documentation Format
+
+General Tips for Documentation Creation:
 
 - Avoid jargon, or use a link that explains what the word or phrase means
 
@@ -39,4 +41,5 @@ Provide a quick recap and guide next steps.
 * When to use it within the VHP workflow
 * Its main strengths and practical value
 * Where to go next (follow-up tools, relevant documentation, contact points)
+
 
