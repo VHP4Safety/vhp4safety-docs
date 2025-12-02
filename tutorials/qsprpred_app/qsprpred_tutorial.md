@@ -18,20 +18,20 @@ This prediction is done by target-specific, pretrained QSAR models. QSAR models 
 ## Accessing the Tool
 
 Access the tool here:
-- (https://qsprpred.cloud.vhp4safety.nl/)[https://qsprpred.cloud.vhp4safety.nl/]
+- [https://qsprpred.cloud.vhp4safety.nl/](https://qsprpred.cloud.vhp4safety.nl/)
 - no prerequisites
 
 ## Tool Functionalities
 
 - The app’s initial interface allows users to:
-  - select a model  
+  - select a MIE model  
   - specify the chemical(s) of interest (Figure 1)
 
 - Each model box displays key model characteristics.
 
 - A full model description is provided as a QMRF, including:
   - general information  
-  - endpoint  
+  - endpoint (i.e. the biological target of the MIE) 
   - algorithm  
   - domain of applicability  
   - goodness-of-fit  
@@ -75,11 +75,14 @@ Depending on the model the readout is either a numeric value or an activity clas
 
 - The QPRF is intended to support the user by summarizing and documenting key information about QSAR predictions.
 
+For risk assessment, the MIE prediction gives an indication of chemical hazard. When binding surpasses a certain threshold the chemical poses a chemical hazard. Derive a complete safety assessment by combining chemical hazard with internal exposure (derived from toxicokinetic models) and quantitative modelling of the adverse outcome pathway.
+
 ## Summary
 
-QSPRpred lets users predict MIE activation for their chemical(s) of interest. This is useful for hazard identification of specific chemicals. Read our preprint for more information about the models for chemical-induced Parkinson's disease (<a href="https://chemrxiv.org/engage/chemrxiv/article-details/6926d27065a54c2d4abc69f9" target="_blank">here</a>). Explore the tool further using our practice exercises (<a href="https://lindeschoenmaker.github.io/" target="_blank">here</a>).
+QSPRpred lets users predict MIE activation for their chemical(s) of interest. This is useful for hazard identification of specific chemicals. Within the VHP workflow, MIE activation is used to link internal concentrations to quantitative adverse outcome pathways (qAOPs). Read our <a href="https://chemrxiv.org/engage/chemrxiv/article-details/6926d27065a54c2d4abc69f9" target="_blank">preprint</a> for more information about the models for chemical-induced Parkinson's disease. Explore the tool further using our <a href="https://lindeschoenmaker.github.io/" target="_blank">practice exercises</a>.
 
 ## References
 
- - <a href="https://chemrxiv.org/engage/chemrxiv/article-details/6926d27065a54c2d4abc69f9" target="_blank">preprint article about the models for chemical-induced Parkinson's disease</a>
-  - <a href="https://lindeschoenmaker.github.io/" target="_blank">practice exercises</a>
+ - <a href="https://tpi.tv/watch/151" target="_blank">Introductory video</a>
+ - <a href="https://chemrxiv.org/engage/chemrxiv/article-details/6926d27065a54c2d4abc69f9" target="_blank">Preprint article about the models for chemical-induced Parkinson's disease</a>
+  - <a href="https://lindeschoenmaker.github.io/" target="_blank">Practice exercises</a>
