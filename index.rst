@@ -34,6 +34,7 @@ to use the software, models and data generated in the project.
    tutorials/cplogd/cplogd_tutorial.md
    tutorials/molaopanalyser/molaopanalyser.md
    tutorials/qaop_app/qaop_tutorial.md
+   tutorials/qsprpred_app/qsprpred_tutorial.md
    tutorials/sombie/site_of_metabolism_prediction.md
 
 .. toctree::
