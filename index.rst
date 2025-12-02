@@ -28,6 +28,7 @@ to use the software, models and data generated in the project.
    :maxdepth: 2
 
    .. Tutorials/Tutorials.rst
+   tutorials/aopsuite/aopsuite.md
    tutorials/aopwiki/aopwiki.md
    tutorials/aopwikiapi/aopwikiapi.md
    tutorials/bridgedb/gene_hgnc_name_to_ensembl.md
