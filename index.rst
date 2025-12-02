@@ -33,6 +33,7 @@ to use the software, models and data generated in the project.
    tutorials/bridgedb/gene_hgnc_name_to_ensembl.md
    tutorials/cplogd/cplogd_tutorial.md
    tutorials/molaopanalyser/molaopanalyser.md
+   tutorials/o_qt_assistant/o_qt_assistant_tutorial.md
    tutorials/qaop_app/qaop_tutorial.md
    tutorials/qsprpred_app/qsprpred_tutorial.md
    tutorials/sombie/site_of_metabolism_prediction.md
@@ -80,6 +81,7 @@ to use the software, models and data generated in the project.
    :maxdepth: 2
 
    templates/templates.rst
+   tutorials/documentation_format.md
    
       
 Indices and tables

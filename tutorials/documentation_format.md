@@ -1,4 +1,5 @@
-General tips for documentation:
+## General Tips for Documentation Creation:
+
 - Avoid jargon, or use a link that explains what the word or phrase means
 
 1. Introduction
