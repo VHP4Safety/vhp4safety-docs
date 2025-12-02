@@ -44,9 +44,10 @@ Access the tool here:
   - via a CSV file containing a **“SMILES”** column
   - <a href="https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html" target="_blank">more information SMILES</a>
 
-<img src='interface_models.png' alt="drawing" width='500' height='500'>
 
-*Figure 1: User Interface of the QSPRpred App. The user can select between TRbeta (selected) and TRalpha models and input the desired chemical(s) as SMILES strings.*
+![Interface Models](interface_models.png)
+_Figure 1: User Interface of the QSPRpred App. The user can select between TRbeta (selected) and TRalpha models and input the desired chemical(s) as SMILES strings._
+
 
 ## Interpreting the Output
 
