@@ -76,7 +76,7 @@ Depending on the model the readout is either a numeric value or an activity clas
 
 ## Summary
 
-QSPRpred lets users predict MIE activation for their chemical(s) of interest. This is useful for hazard identification of specific chemicals. Read our preprint for more information about the models for chemical-induced Parkinson's disease (<a href="https://chemrxiv.org/engage/chemrxiv/article-details/6926d27065a54c2d4abc69f9" target="_blank">here</a>). Explore the tool further using our practice exercises (<a href="https://lindeschoenmaker.github.io/" target="_blank">here</a>).
+QSPRpred lets users predict MIE activation for their chemical(s) of interest. This is useful for hazard identification of specific chemicals. Read our <a href="https://chemrxiv.org/engage/chemrxiv/article-details/6926d27065a54c2d4abc69f9" target="_blank">preprint</a> for more information about the models for chemical-induced Parkinson's disease. Explore the tool further using our <a href="https://lindeschoenmaker.github.io/" target="_blank">practice exercises</a>.
 
 ## References
 
