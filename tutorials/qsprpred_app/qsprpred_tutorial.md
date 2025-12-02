@@ -65,5 +65,5 @@ Depending on the model the readout is either a numeric value or an activity clas
 
 ## References
 
- - <a href="https://chemrxiv.org/engage/chemrxiv/article-details/6926d27065a54c2d4abc69f9" target="_blank">(preprint article about the models for chemical-induced Parkinson's disease)</a>
-  - <a href="https://lindeschoenmaker.github.io/" target="_blank">(practice exercises)</a>
+ - <a href="https://chemrxiv.org/engage/chemrxiv/article-details/6926d27065a54c2d4abc69f9" target="_blank">preprint article about the models for chemical-induced Parkinson's disease</a>
+  - <a href="https://lindeschoenmaker.github.io/" target="_blank">practice exercises</a>
