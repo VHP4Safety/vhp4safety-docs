@@ -33,7 +33,7 @@ Depending on the model the readout is either a numeric value or an activity clas
 - Molecules can be input in two ways:
   - as comma-separated SMILES strings  
   - via a CSV file containing a **“SMILES”** column
-  - <a href="https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html" target="_blank">(more information SMILES)</a>
+  - <a href="https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html" target="_blank">more information SMILES</a>
 
 <img src='interface_models.png' alt="drawing" width='500' height='500'>
 
