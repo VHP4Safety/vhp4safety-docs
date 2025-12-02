@@ -2,17 +2,26 @@
 
 **Linde Schoenmaker**
 
-The QSPRpred app offers users a tool to predict the activity of their chemicals of interest for molecular initiation events (MIEs) from the VHP4Safety case studies. Specifically, it can be used to perform hazard identification for:
+## Introduction
+
+The QSPRpred app is designed to perform hazard identification. It does this by predicting the interaction between a chemical of interest and relevant biological targets (called molecular initiating events (MIEs). 
+
+It should be used to perform hazard identification for:
 
 * chemical-induced Parkinson's disease (MIE = metabotropic glutamate receptors)
 * thyroid-mediated neurodevelopmental toxicity (MIE = thyroid hormone receptors)
 
-This prediction is done by target-specific, pretrained QSAR models. QSAR models are machine learning models trained to predict properties of chemicals. These models were trained on curated datasets from the Papyrus database <a href="https://link.springer.com/article/10.1186/s13321-022-00672-x" target="_blank">(more information Papyrus)</a>.
+MIE activation is an important part of safety assessment on the VHP4Safety platform. It links the presense of a chemical in the human body to a cascade of (known) responses that ends with an adverse outcome (AO). 
 
-Depending on the model the readout is either a numeric value or an activity class (active/inactive). In both cases the endpoint is based on the pChEMBL value <a href="https://chembl.gitbook.io/chembl-interface-documentation/frequently-asked-questions/chembl-data-questions#what-is-pchembl" target="_blank">(more information pChEMBL)</a>. Briefly, this value is a negative logarithmic measure for activity and translates to a concentration of 10^-pchembl for a half maximal response. For example, an IC50 measurement of 1nM would have a pChEMBL value of 9. More information about each model can be found in the QMRF document.
+This prediction is done by target-specific, pretrained QSAR models. QSAR models are machine learning models trained to predict properties of chemicals. These models were trained on curated datasets from the Papyrus database <a href="https://link.springer.com/article/10.1186/s13321-022-00672-x" target="_blank">(more information Papyrus)</a>. Model predictions are accurate for chemicals similar to the training set. Highly different molecules do not fall within the domain of applicability (an indication of this will be given by the tool).
 
+## Accessing the Tool
 
-## Model Selection and Inputs
+Access the tool here:
+- (https://qsprpred.cloud.vhp4safety.nl/)[https://qsprpred.cloud.vhp4safety.nl/]
+- no prerequisites
+
+## Tool Functionalities
 
 - The app’s initial interface allows users to:
   - select a model  
@@ -39,7 +48,9 @@ Depending on the model the readout is either a numeric value or an activity clas
 
 *Figure 1: User Interface of the QSPRpred App. The user can select between TRbeta (selected) and TRalpha models and input the desired chemical(s) as SMILES strings.*
 
-## Predict MIE
+## Interpreting the Output
+
+Depending on the model the readout is either a numeric value or an activity class (active/inactive). In both cases the endpoint is based on the pChEMBL value <a href="https://chembl.gitbook.io/chembl-interface-documentation/frequently-asked-questions/chembl-data-questions#what-is-pchembl" target="_blank">(more information pChEMBL)</a>. Briefly, this value is a negative logarithmic measure for activity and translates to a concentration of 10^-pchembl for a half maximal response. For example, an IC50 measurement of 1nM would have a pChEMBL value of 9. More information about each model can be found in the QMRF document.
 
 - After selecting a model, the user can start the prediction by clicking **Run Prediction**.
   - This executes the chosen QSAR model(s) and produces activity predictions.
@@ -62,6 +73,10 @@ Depending on the model the readout is either a numeric value or an activity clas
   - (all model-available information is pre-filled, though the document is not fully completed)
 
 - The QPRF is intended to support the user by summarizing and documenting key information about QSAR predictions.
+
+## Summary
+
+QSPRpred lets users predict MIE activation for their chemical(s) of interest. This is useful for hazard identification of specific chemicals. Read our preprint for more information about the models for chemical-induced Parkinson's disease (<a href="https://chemrxiv.org/engage/chemrxiv/article-details/6926d27065a54c2d4abc69f9" target="_blank">here</a>). Explore the tool further using our practice exercises (<a href="https://lindeschoenmaker.github.io/" target="_blank">here</a>).
 
 ## References
 
