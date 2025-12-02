@@ -23,3 +23,8 @@ The app's initial interface allows users to select a model and specify the chemi
 ## Predict MIE
 
 Once the model is selected, the user can initiate the prediction by clicking the *Run Prediction* button. This triggers the execution of the selected QSAR model(s) and generates activity predictions. In addition to the prediction value an indication of the domain of applicability is also always shown. For more information the user can navigate to the "Comprehensive output" tab. Here information on the nearest neighbor from the training set is given; its structure, similarity to the input molecule, measured value and source(s). Furthermore, each prediction is accompanied by a QPRF document (a data format intended for summarising and reporting key information on QSAR model predictions). This document gives information about the input substance, model used, prediction, input, applicability domain and reliability. All information available to the model will be pre-filled out. This document is intended to aid the user but will not be completely filled out.
+
+## References
+
+ - <a href="https://chemrxiv.org/engage/chemrxiv/article-details/6926d27065a54c2d4abc69f9" target="_blank">(preprint article about model for chemical-induced Parkinson's disease)</a>
+  - <a href="https://lindeschoenmaker.github.io/" target="_blank">(practice exercises)</a>
