@@ -74,7 +74,7 @@ Depending on the model the readout is either a numeric value or an activity clas
 
 - The QPRF is intended to support the user by summarizing and documenting key information about QSAR predictions.
 
-For risk assessment, this prediction gives an indication of chemical hazard. When binding surpasses a certain threshold the chemical poses a chemical hazard. Derive a complete safety assessment by combining chemical hazard with internal exposure (derived from toxicokinetic models) and quantitative modelling of the adverse outcome pathway.
+For risk assessment, the MIE prediction gives an indication of chemical hazard. When binding surpasses a certain threshold the chemical poses a chemical hazard. Derive a complete safety assessment by combining chemical hazard with internal exposure (derived from toxicokinetic models) and quantitative modelling of the adverse outcome pathway.
 
 ## Summary
 
