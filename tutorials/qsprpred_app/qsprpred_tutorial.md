@@ -24,14 +24,14 @@ Access the tool here:
 ## Tool Functionalities
 
 - The app’s initial interface allows users to:
-  - select a model  
+  - select a MIE model  
   - specify the chemical(s) of interest (Figure 1)
 
 - Each model box displays key model characteristics.
 
 - A full model description is provided as a QMRF, including:
   - general information  
-  - endpoint  
+  - endpoint (i.e. the biological target of the MIE) 
   - algorithm  
   - domain of applicability  
   - goodness-of-fit  
