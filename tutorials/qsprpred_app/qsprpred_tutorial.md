@@ -18,7 +18,7 @@ This prediction is done by target-specific, pretrained QSAR models. QSAR models 
 ## Accessing the Tool
 
 Access the tool here:
-- (https://qsprpred.cloud.vhp4safety.nl/)[https://qsprpred.cloud.vhp4safety.nl/]
+- [https://qsprpred.cloud.vhp4safety.nl/](https://qsprpred.cloud.vhp4safety.nl/)
 - no prerequisites
 
 ## Tool Functionalities
