@@ -37,6 +37,7 @@ to use the software, models and data generated in the project.
    tutorials/o_qt_assistant/o_qt_assistant_tutorial.md
    tutorials/qaop_app/qaop_tutorial.md
    tutorials/qsprpred_app/qsprpred_tutorial.md
+   tutorials/r_odaf/r_odaf_intro.md
    tutorials/sombie/site_of_metabolism_prediction.md
 
 .. toctree::
