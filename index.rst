@@ -79,6 +79,12 @@ to use the software, models and data generated in the project.
    sustainability/icinga_checks.md
 
 .. toctree::
+   :caption: Swarm Cluster Deployment
+   :maxdepth: 2
+
+   swarm_documents/aop_suite.md
+
+.. toctree::
    :caption: Miscellaneous
    :maxdepth: 2
 
