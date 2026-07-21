@@ -84,6 +84,7 @@ to use the software, models and data generated in the project.
 
    templates/templates.rst
    tutorials/documentation_format.md
+   tutorials/peertube/intro.md   
    
       
 Indices and tables
